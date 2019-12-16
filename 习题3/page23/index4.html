@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>任务:急救的正确顺序</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maixmum-scale=1.0,user-scalable=no">
+  <link rel="stylesheet" href="css/animate.min.css"></link>
+  <link rel="stylesheet" href="css/style.css"></link>
+  <style>
+    .title{
+      padding: 0.5rem 2rem 0.1rem 1.6rem;
+      font-size: 0.6rem;
+    }
+    main{
+      width: 100%;
+    }
+    img.width100{
+      width: 100%;
+      height: 100%;
+    }
+    .inputDiv{
+      font-size: 0.6rem;
+      padding: 0.4rem 1.6rem;
+      line-height: 1.5rem;
+    }
+    .sureButton{
+      text-align: center;
+      position: relative;
+      margin: 0.5rem 0;
+    }
+    .shandian{
+      height: 4rem;
+      display: block;
+      margin: 1rem auto 0;
+    }
+    .width50{
+      display: inline-block;
+      width: 48%;
+      padding-left: 6%;
+      box-sizing: border-box;
+    }
+    .checkButton{
+        color: #666666;
+        font-size: 0.6rem;
+        width: 3rem;
+        height: 1rem;
+        display: inline-block;
+        background-color: #f5f5f5;
+        border-radius: 0.4rem;
+        border:1px solid rgba(143,143,153,1);
+        text-align: center;
+    }
+    .yes{
+        background-color: #51a351;
+        color: #ffffff;
+    }
+    .no{
+        background-color: red;
+        color: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer">
+    <div class="imgHeader">
+      <img src="images/tlt14.png" class="dianya" />
+    </div>
+    <main>
+        <div class="title">一、标出可以切断高压系统电源的选项</div>
+        <form action="" class="inputDiv">          
+            <span class="width50"><input type="checkbox" name="one" value="1">关闭点火开关 </span>
+            <span class="width50"><input type="checkbox" name="one" value="2">电动模式按钮</span>
+            <span class="width50"><input type="checkbox" name="one" value="3">高压汽车充电电缆</span>
+            <span class="width50"><input type="checkbox" name="one" value="4">高压分离插头</span>
+            <span class="width50"><input type="checkbox" name="one" value="5">断开12V蓄电池</span>
+            <span class="width50"><input type="checkbox" name="one" value="6">选档杆</span>
+            <span class="width50"><input type="checkbox" name="one" value="7">12V充电器</span>
+            <span class="width50"><input type="checkbox" name="one" value="8">低压分离插头</span>
+        </form>
+        <div class="sureButton">
+            <span class="width50"><span class="checkButton" id="checkOne">检查</span></span>
+            <span class="width50" style="text-align: left;"><span class="checkButton" id="answerOne">答案</span></span>
+        </div>
+        <div class="title">二、标出可以将触电人员与电源分开的物品</div>
+        <form action="" class="inputDiv">                                   
+            <span class="width50"><input type="checkbox" name="two" value="1">扳手</span>
+            <span class="width50"><input type="checkbox" name="two" value="2">扫帚</span>
+            <span class="width50"><input type="checkbox" name="two" value="3">方木</span>
+            <span class="width50"><input type="checkbox" name="two" value="4">金属链</span>
+            <span class="width50"><input type="checkbox" name="two" value="5">灭火器</span>
+            <span class="width50"><input type="checkbox" name="two" value="6">徒手</span>
+            <span class="width50"><input type="checkbox" name="two" value="7">金属棍</span>
+            <span class="width50"><input type="checkbox" name="two" value="8">棒球棒（木制）</span>
+        </form>
+        <div class="sureButton">
+            <span class="width50"><span class="checkButton" id="checkTwo">检查</span></span>
+            <span class="width50" style="text-align: left;"><span class="checkButton" id="answerTwo">答案</span></span>
+        </div>
+    </main>
+  </div>
+</body>
+</html>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/touch-punch.js"></script>
+<script>
+  window.onresize = getRem;
+  function getRem() {
+    document.documentElement.style.fontSize = document.documentElement.offsetWidth / 20 + 'px';
+  }
+  getRem();
+  $(function(){ 
+    $("#checkOne").click(function(){
+      var str = [];
+      $("input[name='one']:checked").each(function (index, item) {
+          if ($("input[name='one']:checked").length-1==index) {
+              str.push($(this).val());
+          } else {
+            str.push($(this).val());
+          }  
+      });
+      if (str.length ==4 && str.includes("1") && str.includes("3") && str.includes("5") && str.includes("8")) {
+        $("#checkOne").addClass("yes");
+        $("#checkOne").text("正确!");
+        setTimeout(function(){
+          $("#checkOne").removeClass("yes");
+          $("#checkOne").text("检查");
+        },2000);
+      } else {
+        $("#checkOne").addClass("no");
+        $("#checkOne").text("错误...");
+        setTimeout(function(){
+            $("#checkOne").removeClass("no");
+            $("#checkOne").text("检查");
+        },2000);
+      }
+    });
+    $("#answerOne").click(function(){
+    	$("input[name='one']").each(function (index, item) {
+    		  var arr = ["1","3","5","8"];
+    		  if(arr.includes($(item).val())){
+    		  	$(item).attr("checked", "checked");
+    		  } else {
+    		  	$(item).prop("checked", false);
+    		  }
+     });
+    });
+    // 下面的按钮
+    $("#checkTwo").click(function(){
+      var str = [];
+      $("input[name='two']:checked").each(function (index, item) {
+          if ($("input[name='two']:checked").length-1==index) {
+              str.push($(this).val());
+          } else {
+            str.push($(this).val());
+          }  
+      });
+      if (str.length ==3 && str.includes("2") && str.includes("3") && str.includes("8")) {
+        $("#checkTwo").addClass("yes");
+        $("#checkTwo").text("正确!");
+        setTimeout(function(){
+          $("#checkTwo").removeClass("yes");
+          $("#checkTwo").text("检查");
+        },2000);
+      } else {
+        $("#checkTwo").addClass("no");
+        $("#checkTwo").text("错误...");
+        setTimeout(function(){
+            $("#checkTwo").removeClass("no");
+            $("#checkTwo").text("检查");
+        },2000);
+      }
+    });
+    $("#answerTwo").click(function(){
+        $("input[name='two']").each(function (index, item) {
+    		  var arr = ["2","3","8"];
+    		  if(arr.includes($(item).val())){
+    		  	$(item).attr("checked", "checked");
+    		  } else {
+    		  	$(item).prop("checked", false);
+    		  }
+     });
+    });
+  });
+</script>
+

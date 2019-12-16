@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>电压安全-断电</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maixmum-scale=1.0,user-scalable=no">
+  <link rel="stylesheet" href="css/animate.min.css"></link>
+  <link rel="stylesheet" href="css/style.css"></link>
+  <style>
+    .drawing{
+      position: relative;
+      margin-top: 0.6rem;
+      width: 13.6rem;
+      height: 13.6rem;
+      background: url("images/kuaibai.png") no-repeat;
+      background-size:100% auto;
+      position:absolute;
+      left:50%;
+      margin-left: -6.8rem;
+      padding: 1.2rem 1.5rem;
+    }
+    .ditu {
+      position: relative;
+    }
+    img.width100{
+      width: 100%;
+      height: 100%;
+    }
+    .imgTop{
+      width:3.75rem;
+      position: absolute;
+      top: 2rem;
+      left: 4rem;
+      display: none;
+      /* animation:shanshuo 0.5s 3 1s; */
+    }
+    /* @keyframes shanshuo {
+        from {
+          opacity: 0;
+          transform: scale(1);
+        }
+        to {
+          opacity:1;
+          transform: scale(1.1);
+        }
+      } */
+
+  </style>
+</head>
+
+<body>
+  <div class="outer">
+    <div class="imgHeader">
+      <image src="images/duandian0.png" class="dianya" />
+    </div>
+    <main>
+      <div class="title">
+        BMS对“高压保护”进行控制
+      </div>
+      <div class="content">
+        高压蓄电池的电压并不一直施加到车内其他高压组件上。可以通过所谓的“高压保护”断开或闭合电路。这些“高压保护”类似一个开关。当它们打开时，高压蓄电池之外不存在电压,也没有电流流过。它们通过汽车的12V蓄电池驱动。只有当存在12V电压并且点火开关打开时,“高压保护”才会关闭。蓄电池管理系统(BMS) 对“高压保护”进行控制。
+      </div>
+      <div class="drawing">
+        <div class="ditu">
+          <img class="width100" src="images/duandian1.png">
+          <img class="imgTop" src="images/duandian2.png">
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/touch-punch.js"></script>
+<script>
+  window.onresize = getRem;
+  function getRem() {
+    document.documentElement.style.fontSize = document.documentElement.offsetWidth / 20 + 'px';
+  }
+  getRem();
+  $(function(){
+    $(".imgTop").show(1000, function(){
+      $(".imgTop").addClass('flash animated infinite');
+      setTimeout(removeClass, 2000);
+    });
+  });
+  function removeClass() {
+    $(".imgTop").removeClass('flash animated infinite');
+  }
+</script>
+

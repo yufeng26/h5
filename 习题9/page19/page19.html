@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>专业断电</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maixmum-scale=1.0,user-scalable=no">
+  <link rel="stylesheet" href="css/animate.min.css"></link>
+  <link rel="stylesheet" href="css/style.css"></link>
+  <style>
+    .title{
+      padding: 0.5rem 2rem 0.1rem 1.6rem;
+    }
+    main{
+      width: 100%;
+    }
+    img.width100{
+      width: 100%;
+      height: 100%;
+    }
+    .inputDiv{
+      font-size: 0.6rem;
+      padding: 0.4rem 1.6rem;
+      line-height: 1.5rem;
+    }
+    .sureButton{
+      text-align: center;
+      position: relative;
+    }
+    .sureButton img{
+      width: 10rem;
+      height: 1.2rem;
+    }
+    .sureButton .sure{
+      position: absolute;
+      z-index: 9;
+      top:0;
+      left: 50%;
+      margin-left: -5rem;
+    }
+    .sureButton .error{
+      position: absolute;
+      z-index: 10;
+      top:0;
+      left: 50%;
+      margin-left: -5rem;
+    }
+    .shandian{
+      height: 4rem;
+      display: block;
+      margin: 1rem auto 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer">
+    <div class="imgHeader">
+      <img src="images/tlt11.png" class="dianya" />
+    </div>
+    <main>
+        <div class="content">                      
+            <p style="margin-bottom: 0.5rem">对于某些操作来说,必须关闭高压系统。关闭高压系统有一套固定程序,必须由高压电气技术人员(HVT)或高压电气专业人员(HVE)</p>
+            <p>大众汽车的售后服务文件中对于何时需要由专业人员关闭电源有相关说明。</p>
+        </div>
+        <div class="title">电力驱动工作模式</div>
+        <form action="" class="inputDiv">
+            <input type="checkbox" name="vehicle" value="1">已接受电气知识培训的人员 (EIP)<br>
+            <input type="checkbox" name="vehicle" value="2">高压电气技术人员 (HVT)<br>
+            <input type="checkbox" name="vehicle" value="3">高压电气专业人员 (HVE)
+        </form>
+        <div class="sureButton">
+            <img src="images/gxbutton.png" id="gxButton">
+            <img src="images/sure.png" class="sure" style="display: none">
+            <img src="images/error.png" class="error" style="display: none">
+        </div>
+        <img src="images/shandian.png" class="shandian">
+    </main>
+  </div>
+</body>
+</html>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/touch-punch.js"></script>
+<script>
+  window.onresize = getRem;
+  function getRem() {
+    document.documentElement.style.fontSize = document.documentElement.offsetWidth / 20 + 'px';
+  }
+  getRem();
+  $(function(){ 
+    $("#gxButton").click(function(){
+      var str = [];
+      $("input[name='vehicle']:checked").each(function (index, item) {
+          if ($("input[name='vehicle']:checked").length-1==index) {
+              str.push($(this).val());
+          } else {
+            str.push($(this).val());
+          }  
+      });
+      console.log(str);
+      if (str.length==2 && str.includes("3") && str.includes("2")) {
+        $(".sure").show();
+        setTimeout(function(){
+          $(".sure").hide();
+        },2000);
+      } else {
+        $(".error").show();
+        setTimeout(function(){
+          $(".error").hide();
+        },2000);
+      }
+    });
+  });
+</script>
+

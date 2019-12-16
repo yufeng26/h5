@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>常见问题：高压组件</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maixmum-scale=1.0,user-scalable=no">
+  <link rel="stylesheet" href="css/animate.min.css"></link>
+  <link rel="stylesheet" href="css/style.css"></link>
+  <style>
+    .title{
+      padding: 0.5rem 2rem 0.1rem 1.6rem;
+      font-size: 0.6rem;
+    }
+    main{
+      width: 100%;
+    }
+    img.width100{
+      width: 100%;
+    }
+    .inputDiv{
+      font-size: 0.6rem;
+      padding: 0.4rem 1.6rem;
+      line-height: 1.5rem;
+    }
+    .sureButton{
+      text-align: center;
+      position: relative;
+      margin: 0.2rem 0;
+    }
+    .shandian{
+      height: 4rem;
+      display: block;
+      margin: 1rem auto 0;
+    }
+    .width50{
+      display: inline-block;
+      width: 48%;
+      padding-left: 6%;
+      box-sizing: border-box;
+    }
+    .width100{
+     padding-left: 6%;
+    }
+    .checkButton{
+        color: #666666;
+        font-size: 0.8rem;
+        width: 10rem;
+        height: 1.2rem;
+        line-height: 1.2rem;
+        display: inline-block;
+        background-color: #f5f5f5;
+        border-radius: 0.4rem;
+        border:1px solid rgba(143,143,153,1);
+        text-align: center;
+    }
+    .yes{
+        background-color: #51a351;
+        color: #ffffff;
+    }
+    .no{
+        background-color: red;
+        color: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer" style="overflow-y: auto;">
+    <div class="imgHeader">
+      <img src="images/tlt16.png" class="dianya" />
+    </div>
+    <main>
+        <div class="title">一、电机有什么功能？</div>
+        <form action="" class="inputDiv">
+             <span class="width50"><input type="checkbox" name="one" value="1">驱动汽车 </span>
+             <span class="width50"><input type="checkbox" name="one" value="2">为发动机点火 </span>
+             <span class="width100"><input type="checkbox" name="one" value="3">为高压电池充电的交流发电机 </span>
+        </form>
+        <div class="sureButton">
+            <span class="checkButton" id="checkOne">提交</span>
+        </div>
+        <div class="title">二、由哪个组件为12V车载电池充电？？</div>
+        <form action="" class="inputDiv">
+             <span class="width50"><input type="checkbox" name="two" value="1">交流发电机 </span>
+             <span class="width50"><input type="checkbox" name="two" value="2">没有12V车载电池 </span>
+             <span class="width100"><input type="checkbox" name="two" value="3">动力电子电路 </span>
+        </form>
+        <div class="sureButton">
+            <span class="checkButton" id="checkOne2">提交</span>
+        </div>
+        <div class="title">三、插电式混合动力汽车内部是如何制热的？</div>
+        <form action="" class="inputDiv">
+             <span class="width50"><input type="checkbox" name="three" value="1">驱动汽车 </span>
+             <span class="width50"><input type="checkbox" name="three" value="2">为发动机点火 </span>
+             <span class="width100"><input type="checkbox" name="three" value="3">为高压电池充电的交流发电机 </span>
+        </form>
+        <div class="sureButton">
+            <span class="checkButton" id="checkOne3">提交</span>
+        </div>
+        <div class="title">四、充电单元在哪里？</div>
+        <form action="" class="inputDiv">
+             <span class="width50"><input type="checkbox" name="four" value="1">驱动汽车 </span>
+             <span class="width50"><input type="checkbox" name="four" value="2">为发动机点火 </span>
+             <span class="width100"><input type="checkbox" name="four" value="3">为高压电池充电的交流发电机 </span>
+        </form>
+        <div class="sureButton">
+            <span class="checkButton" id="checkOne4">提交</span>
+        </div>
+    </main>
+  </div>
+</body>
+</html>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/touch-punch.js"></script>
+<script>
+  window.onresize = getRem;
+  function getRem() {
+    document.documentElement.style.fontSize = document.documentElement.offsetWidth / 20 + 'px';
+  }
+  getRem();
+  $(function(){ 
+  	// 第一个
+    $("#checkOne").click(function(){
+      var str = [];
+      $("input[name='one']:checked").each(function (index, item) {
+          if ($("input[name='one']:checked").length-1==index) {
+              str.push($(this).val());
+          } else {
+            str.push($(this).val());
+          }  
+      });
+      if (str.length ==3 && str.includes("1") && str.includes("2") && str.includes("3")) {
+        $("#checkOne").addClass("yes");
+        $("#checkOne").text("正确!");
+        setTimeout(function(){
+          $("#checkOne").removeClass("yes");
+          $("#checkOne").text("提交");
+        },2000);
+      } else {
+        $("#checkOne").addClass("no");
+        $("#checkOne").text("错误...");
+        setTimeout(function(){
+            $("#checkOne").removeClass("no");
+            $("#checkOne").text("提交");
+        },2000);
+      }
+    });
+    // 第二个
+    $("#checkOne2").click(function(){
+      var str = [];
+      $("input[name='two']:checked").each(function (index, item) {
+          if ($("input[name='two']:checked").length-1==index) {
+              str.push($(this).val());
+          } else {
+            str.push($(this).val());
+          }  
+      });
+      if (str.length ==1 && str.includes("3")) {
+        $("#checkOne2").addClass("yes");
+        $("#checkOne2").text("正确!");
+        setTimeout(function(){
+          $("#checkOne2").removeClass("yes");
+          $("#checkOne2").text("提交");
+        },2000);
+      } else {
+        $("#checkOne2").addClass("no");
+        $("#checkOne2").text("错误...");
+        setTimeout(function(){
+            $("#checkOne2").removeClass("no");
+            $("#checkOne2").text("提交");
+        },2000);
+      }
+    });
+    // 第三个
+    $("#checkOne3").click(function(){
+      var str = [];
+      $("input[name='three']:checked").each(function (index, item) {
+          if ($("input[name='three']:checked").length-1==index) {
+              str.push($(this).val());
+          } else {
+            str.push($(this).val());
+          }  
+      });
+      if (str.length ==2 && str.includes("1") && str.includes("3")) {
+        $("#checkOne3").addClass("yes");
+        $("#checkOne3").text("正确!");
+        setTimeout(function(){
+          $("#checkOne3").removeClass("yes");
+          $("#checkOne3").text("提交");
+        },2000);
+      } else {
+        $("#checkOne3").addClass("no");
+        $("#checkOne3").text("错误...");
+        setTimeout(function(){
+            $("#checkOne3").removeClass("no");
+            $("#checkOne3").text("提交");
+        },2000);
+      }
+    });
+    // 第四个
+    $("#checkOne4").click(function(){
+      var str = [];
+      $("input[name='four']:checked").each(function (index, item) {
+          if ($("input[name='four']:checked").length-1==index) {
+              str.push($(this).val());
+          } else {
+            str.push($(this).val());
+          }  
+      });
+      if (str.length ==1 && str.includes("3")) {
+        $("#checkOne4").addClass("yes");
+        $("#checkOne4").text("正确!");
+        setTimeout(function(){
+          $("#checkOne4").removeClass("yes");
+          $("#checkOne4").text("提交");
+        },2000);
+      } else {
+        $("#checkOne4").addClass("no");
+        $("#checkOne4").text("错误...");
+        setTimeout(function(){
+            $("#checkOne4").removeClass("no");
+            $("#checkOne4").text("提交");
+        },2000);
+      }
+    });
+  });
+</script>
+

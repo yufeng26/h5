@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>无设计稿rem</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maixmum-scale=1.0,user-scalable=no">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      background-color: #93D9F6;
+      width: 100%;
+      height: 100%;
+      font-family: Helvetica;
+      color: #313131;
+    }
+
+    .outer {
+      position: relative;
+      width: 17.5rem;
+      margin: 3rem auto;
+      height: 100%;
+      overflow-y: scroll;
+      background: #fff url(images/bg.png) no-repeat;
+      background-size: 100% auto;
+    }
+
+    .imgHeader {
+      width: 100%;
+      height: 4rem;
+    }
+
+    .lianxi {
+      position: absolute;
+      margin-top: 1.75rem;
+      width: 13.5rem;
+      left: 50%;
+      margin-left: -6.75rem;
+      height: auto;
+    }
+
+    main {
+      width: 100%;
+    }
+    .part{
+      position: relative;
+      margin: 0 auto;
+      width:15rem;
+    }
+    .BtnPart {
+      margin-top: 0.6rem;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      height: 2.1rem;
+    }
+
+    .BtnPart a img {
+      position: absolute;
+      width: 2.9rem;
+      height: auto;
+    }
+
+    .BtnPart a:nth-child(1) img {
+      left: 2rem;
+    }
+
+    .BtnPart a:nth-child(2) img {
+      right: 2rem;
+    }
+
+    .imgPart {
+      width: 8rem;
+      margin:1rem auto;
+      height: 1.5rem;
+      border: 1px solid #eee;
+      overflow: hidden;
+    }
+
+    .imgPart img {
+      display: inline-block;
+      margin: 0rem 0.2rem;
+      padding: 0;
+    }
+
+    .imgPart img,
+    .dragPart img {
+      width: 2rem;
+    }
+
+    .dragPart {
+      width: 100%;
+      height: 16.5rem;
+      margin:2rem auto;
+    }
+
+    .dragImgPart {
+      width: 3rem;
+      height: 7.8rem;
+      background-color: #182EEB;
+      opacity: 0.51;
+      position: absolute;
+      top: 3.6rem;
+      left: 4.8rem;
+      z-index: 1;
+    }
+
+    .dragImgPart img {
+      width: 2.8rem;
+    }
+    .tishi2 {
+      position: absolute;
+      width: 5.6rem;
+      top: 4rem;
+      right: 1rem;
+    }
+
+    .tishi2 .xiaoshouer {
+      width: 1rem;
+      height: auto;
+    }
+
+    .tishi2 .tishidongzuo {
+      position: absolute;
+      right: 0rem;
+      font-size: 0.35rem;
+      color: #F3A940;
+      display: inline-block;
+      margin-left: 1rem;
+    }
+
+    .dragPart .drag {
+      position: relative;
+      width:4.5rem;
+      height: 3rem;
+      background-color: #F4F6F5;
+      float: left;
+      margin: 0.2rem;
+    }
+    .dragPart .drag_flex{
+      display: flex;
+      align-items:center;
+    }
+    .dragPart .drag .jiantou{
+      height: 1rem;
+      width:auto;
+      float: left;
+      margin-left: 0.3rem;
+    }
+    .dragPart .drag .wenziarea{
+      font-size:0.35rem;
+      float: left;  
+      width: 70%;
+      box-sizing: border-box;
+      margin-left:0.3rem;
+    }
+    .dragPart .area {
+      width: 2rem;
+      height: 1.5rem;
+      background-color: #E5E5E5;
+      margin:0.2rem auto;
+      overflow: hidden;
+    }
+    .dragPart .drag_area{
+      height: 4.2rem;
+    }
+    .dragPart .drag .wenziarea_drag{
+      width:100%;
+      float: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer">
+    <div class="imgHeader">
+      <image src="images/index8/lianxi.png" class="lianxi" />
+    </div>
+    <main>
+      <div class="part">
+        <h6>谁应该做什么？将人员与其工作相匹配。</h6>
+        <div class="imgPart">
+          <img src="images/index8/hve.png" class="hve">
+          <img src="images/index8/hvt.png" class="hvt">
+          <img src="images/index8/eip.png" class="eip">
+        </div>
+        <p class="tishi2">
+          <img src="images/index8/xiaoshouer.png" class="xiaoshouer">
+          <span class="tishidongzuo">拖动选项使之与正确的答案匹配</span>
+        </p>
+        <div class="dragPart">
+          <div class="drag drag_flex">
+            <img src="images/index8/jiantou.png" class="jiantou"/>
+            <p class="wenziarea">车辆进入维修站</p>
+          </div>
+          <div class="drag drag_flex">
+            <img src="images/index8/jiantou.png" class="jiantou"/>
+            <p class="wenziarea">车辆进入维修站</p>
+          </div>
+          <div class="drag drag_flex">
+            <img src="images/index8/jiantou.png" class="jiantou"/>
+            <p class="wenziarea">事故车辆进入维修站</p>
+          </div>
+          <div class="drag drag1 drag_area">
+            <p class="area area1"></p>
+            <p class="wenziarea wenziarea_drag">接车 客户需要更换轮胎</p>
+          </div>
+          <div class="drag drag2 drag_area">
+            <p class="area area2"></p>
+            <p class="wenziarea wenziarea_drag">接车 客户投诉高压系统 出现问题</p>
+          </div>
+          <div class="drag drag3 drag_area">
+            <p class="area area3"></p>
+            <p class="wenziarea wenziarea_drag">接车 高压系统损坏</p>
+          </div>
+          <div class="drag drag_flex">
+            <img src="images/index8/jiantou.png" class="jiantou"/>
+            <p class="wenziarea">组合仪表上的高压警示灯未亮起</p>
+          </div>
+          <div class="drag drag_flex">
+            <img src="images/index8/jiantou.png" class="jiantou"/>
+            <p class="wenziarea">高压故障</p>
+          </div>
+          <div class="drag drag_flex">
+            <img src="images/index8/jiantou.png" class="jiantou"/>
+            <p class="wenziarea">不能进行合格的断电</p>
+          </div>
+          <div class="drag drag4 drag_area">
+            <p class="area area4"></p>
+            <p class="wenziarea wenziarea_drag">轮胎更换 无高压系统作业</p>
+          </div>
+          <div class="drag drag5 drag_area">
+            <p class="area area5"></p>
+            <p class="wenziarea wenziarea_drag">合格的断电 高压系统作业</p>
+          </div>
+          <div class="drag drag6 drag_area">
+            <p class="area area6"></p>
+            <p class="wenziarea wenziarea_drag">断开高压装置供电 使之安全并拆卸高压蓄电池</p>
+          </div>
+        </div>
+        <div class="BtnPart">
+          <a href="javascript:void(0);" onclick="checkFn()"><img src="images/index8/jiancha.png"></a>
+          <a href="javascript:void(0);" onclick="solutionFn()"><img src="images/index8/daan.png"></a>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/touch-punch.js"></script>
+<script src="js/sortable.js"></script>
+<script>
+  window.onresize = getRem;
+  function getRem() {
+    document.documentElement.style.fontSize = document.documentElement.offsetWidth / 20 + 'px';
+  }
+  getRem();
+  new Sortable(document.querySelector(".imgPart"), {
+    group: {
+      name: 'shared',
+      pull: 'clone'
+    },
+    animation: 150,
+    sort: false,
+    onAdd: function (evt) {
+      $(evt.item).remove();
+    }
+  });
+
+  new Sortable(document.querySelector(".area1"), {
+    group: 'shared',
+    animation: 150,
+  });
+  new Sortable(document.querySelector(".area2"), {
+    group: 'shared',
+    animation: 150,
+  });
+  new Sortable(document.querySelector(".area3"), {
+    group: 'shared',
+    animation: 150,
+  });
+  new Sortable(document.querySelector(".area4"), {
+    group: 'shared',
+    animation: 150,
+  });
+  new Sortable(document.querySelector(".area5"), {
+      group: 'shared',
+      animation: 150,
+  });
+  new Sortable(document.querySelector(".area6"), {
+    group: 'shared',
+    animation: 150,
+  });
+  function checkFn() {
+    var imgs = $(".area").children("img");
+    if (
+      imgs.length == 6
+      &&
+      $(imgs[0]).prop("className") == "eip"
+      &&
+      $(imgs[1]).prop("className") == "eip"
+      &&
+      $(imgs[2]).prop("className") == "eip"
+      &&
+      $(imgs[3]).prop("className") == "eip"
+      &&
+      $(imgs[4]).prop("className") == "hvt"
+      &&
+      $(imgs[5]).prop("className") == "hve"
+    ) {
+      $(".BtnPart a:nth-child(1) img").attr("src", "images/index8/success.png");
+    } else {
+      $(".BtnPart a:nth-child(1) img").attr("src","images/index8/error.png");
+    }
+    setTimeout(() => {
+      $(".BtnPart a:nth-child(1) img").attr("src", "images/index8/jiancha.png");
+    }, 2000);
+  }
+  function solutionFn() {
+    $(".drag_area .area img").remove();
+    $(".imgPart .eip").clone().prependTo($(".area1"));
+    $(".imgPart .eip").clone().prependTo($(".area2"));
+    $(".imgPart .eip").clone().prependTo($(".area3"));
+    $(".imgPart .eip").clone().prependTo($(".area4"));
+    $(".imgPart .hvt").clone().prependTo($(".area5"));
+    $(".imgPart .hve").clone().prependTo($(".area6"));
+  }
+</script>

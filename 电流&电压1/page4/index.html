@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>无设计稿rem</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maixmum-scale=1.0,user-scalable=no">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      background-color:#93D9F6;
+      width: 100%;
+      height: 100%;
+      font-family:Helvetica;
+    }
+    .outer{
+      position: relative;
+      width: 17.5rem;
+      margin:3rem auto;
+      height: 100%;
+      background: url(images/bg.png) no-repeat;
+      background-size:100% auto;
+    }
+    .imgHeader{
+      width: 100%;
+      height: 4rem;
+    }
+    .dianliu{
+      position: absolute;
+      margin-top: 1.75rem;
+      width: 13.5rem;
+      left:50%;
+      margin-left:-6.75rem;
+      height: auto;
+    }
+    main{
+      position: absolute;
+      margin-top: 0.6rem;
+    }
+    .title{
+      font-size: 1rem;
+      padding: 0.5rem;
+      padding-bottom: 0.1rem;
+    }
+    .content{
+      font-size: 0.6rem;
+      padding: 0.5rem;
+      text-indent: 2em;
+    }
+    .drawing{
+      position: relative;
+      margin-top: 1.2rem;
+      width: 11.2rem;
+      height: 11rem;
+      background:#e6f8ff url("images/index2/kuang.png") no-repeat;
+      background-size:100% auto;
+      position:absolute;
+      left:50%;
+      margin-left: -5.6rem;
+    }
+    .danwei{
+      position: absolute;
+      bottom: -1.8rem;
+      width:11rem;
+      margin:0.2rem auto;
+    }
+    .range{
+      position: absolute;
+      top:2rem;
+      width:2rem;
+      height: 0.1875rem;
+      background-color:#3AB3C5;
+      left:50%;
+      margin-left:-1rem;
+    }
+    .range1::before{
+      content:"断开";
+      position: absolute;
+      left:-1.6rem;
+      top:-0.4rem;
+      font-size: 0.6rem;
+    }
+    .range1::after{
+      content:"合上";
+      position: absolute;
+      right:-1.6rem;
+      top:-0.4rem;
+      font-size: 0.6rem;
+    }
+    .range1 .kuaiguan{
+      font-size: 0.6rem;
+      position: absolute;
+      margin-left: 0.5rem;
+      top:-1.4rem;
+    }
+    .kuai{
+      position: absolute;
+      top:-0.16rem;
+      left:0rem;
+      width:0.6rem;
+      height: 0.4rem;
+      background-color:#F3A940;
+    }
+    .range2{
+      width: 0.425rem;
+      height:4rem;
+      top:4.1rem;
+      left:1.925rem;
+    }
+    .kuai2{
+      width: 0.8rem;
+      left:-0.16rem;
+    }
+    .num{
+      font-size: 0.6rem;
+    }
+    .num1{
+      position: absolute;
+      top:6rem;
+      left:3.5rem;
+    }
+    .num2{
+      position: absolute;
+      top:7.6rem;
+      left:3.5rem;
+    }
+    .kuang1{
+      position: absolute;
+      width: 7rem;
+      height: auto;
+      top:3.5rem;
+      left:2.7rem;
+    }
+    .dianyuan{
+      position: absolute;
+      width: 1rem;
+      top:6rem;
+      left:2.2rem;
+    }
+    .jiantou{
+      position: absolute;
+      width: 0.6rem;
+      top:1.4rem;
+      right:2.5rem;
+    }
+    .deng{
+      position: absolute;
+      width: 1.5rem;
+      height: auto;
+      top:6rem;
+      right:0.8rem;
+    }
+    .dengbg{
+      position: absolute;
+      width: 1.3rem;
+      height: 1.3rem;
+      top:6.1rem;
+      right:0.9rem;
+      border-radius:1.3rem;
+      background-color: #e6f8ff;
+      opacity:0;
+    }
+    .fangxiang{
+      position: absolute;
+      width: 2.25rem;
+      height: auto;
+      top:9.1rem;
+      right:4.2rem;
+    }
+    .fangxiangbg{
+      position: absolute;
+      z-index: 10;
+      width: 1.6rem;
+      height: 0.32rem;
+      top:9.4rem;
+      left:4.8rem;
+      background-color: #c00;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer">
+    <div class="imgHeader">
+      <image src="images/index2/dianliu.png" class="dianliu" />
+    </div>
+    <main>
+      <div class="title">
+        电压越大，电流越高
+      </div>
+      <div class="content">
+        如果用一个导电材料连接两个不同的电势，则会产生电流。操作电路中的开关，使电路闭合。电压越大，电流越高。电流的表示符号是I,单位是安培。通过调节滑块可以改变电池电压并看到对用电器的影响;
+      </div>
+      <div class="drawing">
+        <p class="range range1">
+          <span class="kuaiguan">开关</span>
+          <span class="kuai kuai1"><span>
+        </p>
+        <p class="range range2">
+          <span class="kuai kuai2"><span>
+        </p>
+        <img src="images/index2/kuang1.png" class="kuang1" />
+        <img src="images/index2/dianyuan.png" class="dianyuan"/>
+        <span class="num num1">9 V</span>
+        <span class="num num2">0 V</span>
+        <img src="images/index2/X.png" class="deng" />
+        <span class="dengbg"></span>
+        <img src="images/index2/fangxiang.png" class="fangxiang" />
+        <span class="fangxiangbg"></span>
+        <img src="images/index2/danwei.png" class="danwei" />
+        
+      </div>
+    </main>
+  </div>
+</body>
+</html>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/touch-punch.js"></script>
+<script>
+  window.onresize = getRem;
+  function getRem() {
+    document.documentElement.style.fontSize = document.documentElement.offsetWidth / 20 + 'px';
+  }
+  getRem();
+  var temp = false;
+  var dengbgOp = 0;
+  var fangxiangbgW = $(".fangxiangbg").width();
+  var fxW = $(".fangxiangbg").width();
+  (function(){
+    if(!temp){
+      $(".dengbg").css({ "opacity": 1 });
+      $(".fangxiangbg").css({ "width": 0 });
+    }
+  })();
+  $(function(){
+     $(".kuai1").draggable({
+      containment: ".range1",
+      scroll: false,
+      axis: "x",
+      grid:[$(".range1").width()- $(".kuai1").width()],
+      drag: function(event, ui){
+        
+      },
+      stop:function(){
+        if(!temp){
+          $(".kuang1").attr("src","images/index2/kuang2.png").css({
+            "top": "4.2rem"
+          });
+          $(".dengbg").css({ "opacity": dengbgOp });
+          $(".fangxiangbg").css({ "width": fangxiangbgW });
+          
+        }else{
+          $(".kuang1").attr("src", "images/index2/kuang1.png").css({
+            "top": "3.5rem"
+          });
+          $(".dengbg").css({ "opacity": 1 });
+          $(".fangxiangbg").css({ "width": 0 });
+        }
+        temp = !temp;
+      }
+    });
+    
+    $(".kuai2").draggable({
+      containment: ".range2",
+      scroll: false,
+      axis: "y",
+      drag: function (event, ui) {
+        if(!temp) return;
+        var item = $(".range2").height() / 10;
+        var item1 = $(".fangxiangbg").width() /10;   
+        $(".num1").text(9 - parseInt(ui.position.top / item) + " V");
+        dengbgOp = 0.1 * parseInt(ui.position.top / item) + 0.1;
+        $(".dengbg").css({"opacity": dengbgOp});
+        fangxiangbgW = fxW / (parseInt(ui.position.top / item) + 1)
+        $(".fangxiangbg").css({"width": fangxiangbgW});
+
+      },
+    });
+  })
+
+</script>

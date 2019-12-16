@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>练习：发动机舱盖</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maixmum-scale=1.0,user-scalable=no">
+  <link rel="stylesheet" href="css/animate.min.css"></link>
+  <link rel="stylesheet" href="css/style.css"></link>
+  <style>
+    .title{
+      padding: 0.5rem 3rem 0.1rem 2.4rem;
+    }
+    main{
+      width: 100%;
+    }
+    .drawing{
+      margin: 0.2rem auto 0;
+      width: 80%;
+    }
+    .ditu{
+    	border: 1px dotted #CCCCCC;
+    }
+    img.pic{
+      width: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+    .iconBox{
+    	width: 80%;
+    	margin: 0.5rem auto;
+    }
+    .fl{
+    float: left;
+    }
+    .iconBox .leftBox, .iconBox .rightBox{
+    	width: 5rem;
+    	border: 1px dotted #CCCCCC;
+    	padding: 0.4rem;
+    }
+    .iconBox .centerBox{
+    	width: 1rem;
+    	margin: 0 1rem;
+    }
+    .iconBox .centerBox img{
+    	width: 1rem;
+    }
+    .centerBox span{
+    	font-size: 0.8rem;
+    	color: #F3A940;
+    	line-height: 0.8rem !important;
+    }
+    .iconBox ul{
+    	background-color: #F5F5F5;
+    	padding: 0.2rem 0;
+    }
+    .iconBox li{
+    	list-style-type:none;
+    	text-align: center;
+    	margin: 0.1rem 0;
+    }
+    .iconBox li img{
+    	width: 3.2rem;
+    	display: inline-block;
+    	margin: 0 auto;
+    	box-sizing: content-box;
+    }
+    .addColor img{
+    	outline:1px solid #FF0000;
+    }
+    .infor{
+      padding-left: 2rem;
+      font-size: 0.4rem;
+      line-height: 1rem;
+    }
+    .btnGroup{
+    	padding-left: 16%;
+    }
+    .btnGroup .button{
+    	margin: 0.8rem 0;
+    	width: 33%;
+    	color: #666666;
+        font-size: 0.5rem;
+        height: 1.2rem;
+        line-height: 1.2rem;
+        display: inline-block;
+        background-color: #f5f5f5;
+        border-radius: 0.4rem;
+        border:1px solid rgba(143,143,153,1);
+        text-align: center;
+        margin-left: 1%;
+    }
+    .btnGroup .yes{
+        background-color: #51a351;
+        color: #ffffff;
+    }
+    .btnGroup .no{
+        background-color: red;
+        color: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer" style="overflow-y: auto;">
+    <div class="imgHeader">
+      <img src="images/tlt19.png" class="dianya" />
+    </div>
+    <main>
+      <div class="content">
+      	选出高压汽车上使用的标志和提示
+      </div>
+      <div class="drawing">
+        <div class="ditu">
+          <img class="pic" src="images/ditu19.png">
+        </div>
+      </div>
+      <div class="iconBox clear">
+      	<div class="fl leftBox">
+      		<ul>
+      			<li class="icon icon1" onclick="addNum(1)" data-type="0"><img src="images/icon1.png"></li>
+      			<li class="icon icon2" onclick="addNum(2)" data-type="0"><img src="images/icon2.png"></li>
+      			<li class="icon icon3" onclick="addNum(3)" data-type="0"><img src="images/icon3.png"></li>
+      			<li class="icon icon4" onclick="addNum(4)" data-type="0"><img src="images/icon4.png"></li>
+      			<li class="icon icon5" onclick="addNum(5)" data-type="0"><img src="images/icon5.png"></li>		      			
+      		</ul>
+      	</div>
+      	<div class="fl centerBox">
+        	<img src="images/xiaoshou.png" />
+        	<span>点击元件显示名称</span>
+      	</div>
+      	<div class="fl rightBox">
+      		<ul>
+      			<li class="icon icon6" onclick="addNum(6)" data-type="0"><img src="images/icon6.png"></li>
+      			<li class="icon icon7" onclick="addNum(7)" data-type="0"><img src="images/icon7.png"></li>
+      			<li class="icon icon8" onclick="addNum(8)" data-type="0"><img src="images/icon8.png"></li>
+      			<li class="icon icon9" onclick="addNum(9)" data-type="0"><img src="images/icon9.png"></li>
+      			<li class="icon icon10" onclick="addNum(10)" data-type="0"><img src="images/icon10.png"></li>		      			
+      		</ul>
+      	</div>
+      </div>
+      <div class="btnGroup">
+      	<span class="button" id="button1">检查</span>
+      	<span class="button" id="button2">答案</span>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/touch-punch.js"></script>
+<script>
+  window.onresize = getRem;
+  function getRem() {
+    document.documentElement.style.fontSize = document.documentElement.offsetWidth / 20 + 'px';
+  }
+  getRem();
+  // 电机原件
+  var allArr = [];
+  function addNum(a){
+  	var zzCheck = $(".icon"+ a).attr("data-type");
+  	if(a && zzCheck == 0){
+       $(".icon"+ a).addClass("addColor");
+       $(".icon"+ a).attr("data-type", "1");
+       allArr.push(a.toString());
+    } else if (a && zzCheck == 1) {
+       $(".icon"+ a).removeClass("addColor");
+       $(".icon"+ a).attr("data-type", "0");
+       allArr.splice($.inArray(a.toString(),allArr),1);
+    }
+    console.log(allArr);
+  }
+  $(function(){ 
+    $("#button1").click(function(){
+    	if(allArr.length == 7 && allArr.includes("2") && allArr.includes("3") && allArr.includes("4") && allArr.includes("5") && allArr.includes("7") && allArr.includes("9") && allArr.includes("10")) {
+    		$("#button1").addClass("yes");
+            $("#button1").text("正确!");
+            setTimeout(function(){
+             $("#button1").removeClass("yes");
+             $("#button1").text("检查");
+            },2000);
+    	} else {
+    		$("#button1").addClass("no");
+            $("#button1").text("错误...");
+            setTimeout(function(){
+            $("#button1").removeClass("no");
+            $("#button1").text("检查");
+           },2000);
+    	}
+    });
+    // 答案
+    $("#button2").click(function(){
+       $(".iconBox").find(".icon").each(function (index, item) {
+    		  if(index==1 || index==2 || index==3 || index==4 || index==6 || index==8 || index==9){
+    		  	$(item).addClass("addColor");
+    		  } else {
+    		  	$(item).removeClass("addColor");
+    		  }
+        });
+    });
+  });
+</script>

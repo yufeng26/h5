@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>高压安全-打铁接线</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maixmum-scale=1.0,user-scalable=no">
+  <link rel="stylesheet" href="css/animate.min.css"></link>
+  <link rel="stylesheet" href="css/style.css"></link>
+  <style>
+    .dianya{
+      margin-top: 1.5rem
+    }
+    .drawing{
+      position: relative;
+      margin-top: 0.3rem;
+      width: 13.6rem;
+      height: 13.6rem;
+      background: url("images/kuaibai.png") no-repeat;
+      background-size:100% auto;
+      position:absolute;
+      left:50%;
+      margin-left: -6.8rem;
+      padding: 1rem 1.5rem;
+    }
+    .ditu {
+      position: relative;
+    }
+    img.width100{
+      width: 100%;
+      height: 100%;
+    }
+    .imgTop{
+      width: 8.48rem;
+      position: absolute;
+      top: 1.6rem;
+      left: 0.82rem;
+      display: none;
+    }
+    .buttonGroup{
+    	margin: 0.4rem 0;
+    }
+    .buttonGroup .gzImg{
+    	width: 2.32rem;
+    }
+    .buttonGroup .dtImg{
+    	width: 5.2rem;
+    }
+    .notice {
+    	color: #F3A940;
+    	font-size: 0.6rem;
+    	display: inline-block;
+    }
+    .notice img{
+    	width: 0.8rem;
+    	display: inline-block;
+    	border: 1px dashed #cccccc;
+    	margin-left: 1.6rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer" style="overflow-y: auto;">
+    <div class="imgHeader">
+    	<img src="images/tlt5.png" class="dianya" />
+    </div>
+    <main>
+      <div class="title">
+       先导线路保护机制
+      </div>
+      <div class="content">
+        <p>搭铁接线是一种避免电击的简单方法。它将高压部件的所有外壳与车身相接。
+        	用棕色粗导线进行连接。在出现故障时，部件内可能发生短路并使外壳带电。
+        	在本示例中，空调压缩机的外壳处于HV+端的电压下。
+        	只有不接触HV+端和HV-端，那么电路就不闭合的，也不会有电流通过。
+        	(请 点击“故障1”按钮)现在我们假设电子装置中出现了一个故障。
+        	它的外壳上带有HV-。(请点击“故障2”按钮)现在存在一个危险, 
+        	因为没有了防触摸保护，人可能通过触摸电力子装置(HV-) 和空调压缩机(HV+)借助他，的身体使电路闭合。
+        	但因为组件通过搭铁接线和车身相互连接,所以故障电流从那里流过，而不会流过人体。
+        	故障得到识别，系统切断电源。现在断开搭铁接线，看一下反面示例。为此请点击“搭铁”按钮。
+        </p>
+      </div>
+      <div class="drawing">
+        <div class="ditu">
+          <img class="width100" src="images/ditu5.png">
+        </div>
+        <div class="buttonGroup">
+        	<img src="images/gzbutton1.png" class="gzImg" id="gz1"/>
+        	<img src="images/gzbutton2.png" class="gzImg" id="gz2"/>
+        	<img src="images/dtbutton1.png" class="dtImg" id="dt1"/>
+        </div>
+        <div class="notice">
+        	<img src="images/xiaoshou.png" />
+        	<span>点击按钮查看不同状态</span>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/touch-punch.js"></script>
+<script>
+  window.onresize = getRem;
+  function getRem() {
+    document.documentElement.style.fontSize = document.documentElement.offsetWidth / 20 + 'px';
+  }
+  getRem();
+  var a = 1;
+  var b = 1;
+  var c = 1;
+  $(function(){
+    $("#gz1").click(function(){
+      if(a==1){
+        a = 2;
+        $(this).attr("src", "images/gzbutton11.png")
+      } else if (a==2){
+        a = 1;
+        $(this).attr("src", "images/gzbutton1.png")
+      }
+      showImg();
+    });
+    $("#gz2").click(function(){
+      if(b==1){
+        b = 2;
+        $(this).attr("src", "images/gzbutton22.png")
+      } else if (b==2){
+        b = 1;
+        $(this).attr("src", "images/gzbutton2.png")
+      }
+      showImg();
+    });
+    $("#dt1").click(function(){
+      if(c==1){
+        c = 2;
+        $(this).attr("src", "images/dtbutton11.png")
+      } else if (c==2){
+        c = 1;
+        $(this).attr("src", "images/dtbutton1.png")
+      }
+      showImg();
+    });
+  });
+  function showImg() {
+    if(a==1&&b==1&&c==1){
+      $(".width100").attr("src", "images/ditu5.png");
+    } else if(a==2&&b==1&&c==1){
+      $(".width100").attr("src", "images/change1.png");
+    } else if(a==1&&b==2&&c==1){
+      $(".width100").attr("src", "images/change2.png");
+    } else if(a==1&&b==1&&c==2){
+      $(".width100").attr("src", "images/change3.png");
+    } else if(a==2&&b==2&&c==1){
+      $(".width100").attr("src", "images/change4.png");
+    } else if(a==2&&b==1&&c==2){
+      $(".width100").attr("src", "images/change5.png");
+    } else if(a==2&&b==2&&c==2){
+      $(".width100").attr("src", "images/change6.png");
+    } else if(a==1&&b==2&&c==2){
+      $(".width100").attr("src", "images/change7.png");
+    }
+  }
+</script>
+

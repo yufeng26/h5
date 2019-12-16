@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>高压安全-分离插头</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maixmum-scale=1.0,user-scalable=no">
+  <link rel="stylesheet" href="css/animate.min.css"></link>
+  <link rel="stylesheet" href="css/style.css"></link>
+  <style>
+    .dianya{
+      margin-top: 1.5rem
+    }
+    .drawing{
+      position: relative;
+      margin-top: 0.3rem;
+      width: 13.6rem;
+      height: 13.6rem;
+      background: url("images/kuaibai.png") no-repeat;
+      background-size:100% auto;
+      position:absolute;
+      left:50%;
+      margin-left: -6.8rem;
+      padding: 1.2rem 1.5rem;
+    }
+    .ditu {
+      position: relative;
+    }
+    img.width100{
+      width: 100%;
+      height: 100%;
+    }
+    .imgTop{
+      width: 8.48rem;
+      position: absolute;
+      top: 1.6rem;
+      left: 0.82rem;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer">
+    <div class="imgHeader">
+    	<img src="images/tlt4.png" class="dianya" />
+    </div>
+    <main>
+      <div class="title">
+       “高压保护”分离插头
+      </div>
+      <div class="content" style="margin: 1rem 0;">
+        <p>另一种切断车辆供电的方法是使用分离插头。区分高压和低压分离插头。
+        	压分离插头以物理方式断开纵联线路以及两部分蓄电池的高压连接。低压分离插头仅断开纵联线路并促使‘高压保护”开启。
+        </p>
+      </div>
+      <div class="drawing">
+        <div class="ditu">
+          <img class="width100" src="images/ditu4.png">
+          <img class="imgTop" src="images/top4.png">
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/touch-punch.js"></script>
+<script>
+  window.onresize = getRem;
+  function getRem() {
+    document.documentElement.style.fontSize = document.documentElement.offsetWidth / 20 + 'px';
+  }
+  getRem();
+  $(function(){
+    $(".imgTop").show(1000, function(){
+      $(".imgTop").addClass('pulse animated infinite');
+      setTimeout(removeClass, 2000);
+    });
+  });
+  function removeClass() {
+    $(".imgTop").removeClass('pulse animated infinite');
+  }
+</script>
+

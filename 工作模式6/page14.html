@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>能量回收工作模式</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maixmum-scale=1.0,user-scalable=no">
+  <link rel="stylesheet" href="css/animate.min.css"></link>
+  <link rel="stylesheet" href="css/style.css"></link>
+  <style>
+    .title{
+      padding: 0.5rem 3rem 0.1rem 2.4rem;
+    }
+    main{
+      width: 100%;
+    }
+    .drawing{
+      margin: 0.6rem auto 0;
+      width: 12rem;
+      height: 12rem;
+      background: url("images/kuaibai.png") no-repeat;
+      background-size:100% auto;
+      padding: 1.2rem 1.5rem;
+    }
+    .ditu {
+      position: relative;
+    }
+    img.width100{
+      width: 100%;
+      height: 100%;
+    }
+    .infor{
+      padding-left: 2rem;
+      font-size: 0.4rem;
+      line-height: 1.5rem;
+    }
+    .notice {
+    	color: #F3A940;
+    	font-size: 0.6rem;
+    	display: inline-block;
+    }
+    .notice img{
+    	width: 0.8rem;
+    	display: inline-block;
+    	border: 1px dashed #cccccc;
+    	margin-left: 5rem;
+    }
+    .word{
+      display: inline-block;
+      z-index: 9;
+      position: absolute;
+      height: 1.2rem;
+    }
+    .word1{
+      left: -1rem;
+      top: 1rem;
+    }
+    .word2{
+      left: 1.6rem;
+      top: -1rem;
+    }
+    .word3{
+      left: 4rem;
+      top: 4rem;
+    }
+    .word4{
+      left: -1rem;
+      top: 6rem;
+    }
+    .word5{
+      left: 2rem;
+      top: 8rem;
+    }
+    .word6{
+      left: 6rem;
+      top: 6.2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer">
+    <div class="imgHeader">
+      <img src="images/tlt8.png" class="dianya" />
+    </div>
+    <main>
+      <div class="drawing">
+        <div class="ditu">
+          <img class="width100" src="images/ditu8.png" usemap="#redian">
+          <map name="#redian">
+            <area shape="rect" coords="0,0,56,56" onclick="showText(1)">
+            <area shape="rect" coords="56,15,80,56" onclick="showText(2)">
+            <area shape="rect" coords="83,17,118,56" onclick="showText(3)">
+            <area shape="rect" coords="4,100,32,140" onclick="showText(4)">
+            <area shape="rect" coords="50,105,84,136" onclick="showText(5)">
+            <area shape="rect" coords="110,120,164,142" onclick="showText(6)">
+          </map>
+          <img src="images/nrjgb.png" class="word word1">
+          <img src="images/djjld.png" class="word word2">
+          <img src="images/long3.png" class="word word3">
+          <img src="images/bxhry.png" class="word word4">
+          <img src="images/lang.png" class="word word5">
+          <img src="images/gydccd.png" class="word word6">
+        </div>
+      </div>
+      <div class="notice">
+        	<img src="images/xiaoshou.png" />
+        	<span>点击元件显示名称</span>
+      </div>
+      <div class="title">能量回收工作模式</div>
+      <div class="content">
+        <ul class="infor">                  
+        	<li>内燃机关闭</li>
+        	<li>由行驶中的车辆驱动电机</li>
+          <li>电机起到交流发电机的作用</li>
+          <li>高压电池充电,且车辆减速</li>
+        </ul>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/touch-punch.js"></script>
+<script>
+  window.onresize = getRem;
+  function getRem() {
+    document.documentElement.style.fontSize = document.documentElement.offsetWidth / 20 + 'px';
+  }
+  getRem();
+  function showText(num){
+      if(num){
+        $(".word"+ num).show();
+        setTimeout(function(){
+         $(".word"+ num).hide(1000);
+        },3000);
+      }
+  };
+  $(function(){ 
+    $(".word").hide();
+  });
+</script>

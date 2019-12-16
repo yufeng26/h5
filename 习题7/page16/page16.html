@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>任务工作模式</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maixmum-scale=1.0,user-scalable=no">
+  <link rel="stylesheet" href="css/animate.min.css"></link>
+  <link rel="stylesheet" href="css/style.css"></link>
+  <style>
+    .title{
+      padding: 0.5rem 2rem 0.1rem 1.6rem;
+      font-size: 0.6rem;
+    }
+    main{
+      width: 100%;
+    }
+    img.width100{
+      width: 100%;
+      height: 100%;
+    }
+    .inputDiv{
+      font-size: 0.6rem;
+      padding: 0.4rem 1.6rem;
+      line-height: 1.5rem;
+    }
+    .sureButton{
+      text-align: center;
+      position: relative;
+      margin: 1rem 0;
+    }
+    .sureButton img{
+      width: 10rem;
+      height: 1.2rem;
+    }
+    .sureButton .sure, .sureButton .sure2{
+      position: absolute;
+      z-index: 9;
+      top:0;
+      left: 50%;
+      margin-left: -5rem;
+    }
+    .sureButton .error, .sureButton .error2{
+      position: absolute;
+      z-index: 10;
+      top:0;
+      left: 50%;
+      margin-left: -5rem;
+    }
+    .shandian{
+      height: 4rem;
+      display: block;
+      margin: 1rem auto 0;
+    }
+    .width50{
+      display: inline-block;
+      width: 48%;
+      padding-left: 6%;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer">
+    <div class="imgHeader">
+      <img src="images/tlt13.png" class="dianya" />
+    </div>
+    <main>
+        <div class="title">一、哪种工作模式能够提供最大功率输出?</div>
+        <form action="" class="inputDiv">
+            <span class="width50"><input type="checkbox" name="one" value="1">电力驱动 </span>
+            <span class="width50"><input type="checkbox" name="one" value="2">内燃机工作</span>
+            <span class="width50"><input type="checkbox" name="one" value="3">急加速</span>
+            <span class="width50"><input type="checkbox" name="one" value="4">能量回收</span>
+        </form>
+        <div class="sureButton">
+            <img src="images/gxbutton.png" id="gxButton1">
+            <img src="images/sure.png" class="sure" style="display: none">
+            <img src="images/error.png" class="error" style="display: none">
+        </div>
+        <div class="title">二、哪些工作模式用于给高压电池充电?</div>
+        <form action="" class="inputDiv">
+            <span class="width50"><input type="checkbox" name="two" value="1">能量回收</span>
+            <span class="width50"><input type="checkbox" name="two" value="2">内燃机工作</span>
+            <span class="width50"><input type="checkbox" name="two" value="3">电力驱动</span>
+            <span class="width50"><input type="checkbox" name="two" value="4">急加速</span>
+        </form>
+        <div class="sureButton">
+            <img src="images/gxbutton.png" id="gxButton2">
+            <img src="images/sure.png" class="sure2" style="display: none">
+            <img src="images/error.png" class="error2" style="display: none">
+        </div>
+    </main>
+  </div>
+</body>
+</html>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/touch-punch.js"></script>
+<script>
+  window.onresize = getRem;
+  function getRem() {
+    document.documentElement.style.fontSize = document.documentElement.offsetWidth / 20 + 'px';
+  }
+  getRem();
+  $(function(){ 
+    $("#gxButton1").click(function(){
+      var str = [];
+      $("input[name='one']:checked").each(function (index, item) {
+          if ($("input[name='one']:checked").length-1==index) {
+              str.push($(this).val());
+          } else {
+            str.push($(this).val());
+          }  
+      });
+      if (str.length ==1 && str.includes("3")) {
+        $(".sure").show();
+        setTimeout(function(){
+          $(".sure").hide();
+        },2000);
+      } else {
+        $(".error").show();
+        setTimeout(function(){
+          $(".error").hide();
+        },2000);
+      }
+    });
+    // 下面的按钮
+    $("#gxButton2").click(function(){
+      var str2 = [];
+      $("input[name='two']:checked").each(function (index, item) {
+          if ($("input[name='two']:checked").length-1==index) {
+              str2.push($(this).val());
+          } else {
+            str2.push($(this).val());
+          }  
+      });
+      if (str2.length==2 && str2.includes("1") && str2.includes("2")) {
+        $(".sure2").show();
+        setTimeout(function(){
+          $(".sure2").hide();
+        },2000);
+      } else {
+        $(".error2").show();
+        setTimeout(function(){
+          $(".error2").hide();
+        },2000);
+      }
+    });
+  });
+</script>
+

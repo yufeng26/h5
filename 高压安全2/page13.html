@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>高压安全-先导线路</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maixmum-scale=1.0,user-scalable=no">
+  <link rel="stylesheet" href="css/animate.min.css"></link>
+  <link rel="stylesheet" href="css/style.css"></link>
+  <style>
+    .dianya{
+      margin-top: 1.5rem
+    }
+    .drawing{
+      position: relative;
+      margin-top: 0.3rem;
+      width: 13.6rem;
+      height: 13.6rem;
+      background: url("images/kuaibai.png") no-repeat;
+      background-size:100% auto;
+      position:absolute;
+      left:50%;
+      margin-left: -6.8rem;
+      padding: 1.2rem 1.5rem;
+    }
+    .ditu {
+      position: relative;
+    }
+    img.width100{
+      width: 100%;
+      height: 100%;
+    }
+    .imgTop{
+      width: 7.9rem;
+      position: absolute;
+      top: 1.58rem;
+      left: 0.8rem;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer">
+    <div class="imgHeader">
+    	<img src="images/tlt3.png" class="dianya" />
+    </div>
+    <main>
+      <div class="title">
+        先导线路保护机制
+      </div>
+      <div class="content">
+        <p>另一种保护机制是先导线路。它是一种连接不同高压组件的环形线路。
+        	如果线路断开，则蓄电池管理系统开启“压保护”并切断高压装置供电。
+        	高压保护可以在不同位置开启:
+        </p>
+        <ul>
+        	<li>连接空调压缩机的插头(插头包含在先导线路中)</li>
+        	<li>部件盖(取下部件盖时先导线路断开)</li>
+        	<li>其他</li>
+        </ul>
+        <p>在一些车型上还有用于手动断开先导线路的先导线路插头</p>
+      </div>
+      <div class="drawing">
+        <div class="ditu">
+          <img class="width100" src="images/ditu3.png">
+          <img class="imgTop" src="images/top3.png">
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/touch-punch.js"></script>
+<script>
+  window.onresize = getRem;
+  function getRem() {
+    document.documentElement.style.fontSize = document.documentElement.offsetWidth / 20 + 'px';
+  }
+  getRem();
+  $(function(){
+    $(".imgTop").show(1000, function(){
+      $(".imgTop").addClass('pulse animated infinite');
+      setTimeout(removeClass, 2000);
+    });
+  });
+  function removeClass() {
+    $(".imgTop").removeClass('pulse animated infinite');
+  }
+</script>
+

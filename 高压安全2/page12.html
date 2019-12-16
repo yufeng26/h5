@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>电压安全-防触摸保护与绝缘监控</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maixmum-scale=1.0,user-scalable=no">
+  <link rel="stylesheet" href="css/animate.min.css"></link>
+  <link rel="stylesheet" href="css/style.css"></link>
+  <style>
+    .dianya{
+      margin-top: 1.5rem
+    }
+    .drawing{
+      position: relative;
+      margin-top: 0.3rem;
+      width: 13.6rem;
+      height: 13.6rem;
+      background: url("images/kuaibai.png") no-repeat;
+      background-size:100% auto;
+      position:absolute;
+      left:50%;
+      margin-left: -6.8rem;
+      padding: 1.2rem 1.5rem;
+    }
+    .ditu {
+      position: relative;
+    }
+    img.width100{
+      width: 100%;
+      height: 100%;
+    }
+    .imgTop{
+      width: 8.64rem;
+      position: absolute;
+      top: 1.64rem;
+      left: 1.3rem;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer">
+    <div class="imgHeader">
+     <img src="images/tlt2.png" class="dianya" />
+    </div>
+    <main>
+      <div class="title">
+        防触摸保护与绝缘监控
+      </div>
+      <div class="content">
+        安全方案的一个重要组成部分是防触摸保护。防触摸保护是指，在高压系统完好无损的情况下，任何人都不能触摸导电部件。电路本身和所有连接处均采用防触摸保护设计。与通过负极和整个车身相接的12V车载电网蓄电池不同，高压蓄电池的电流仅有一个HV+端的闭合“去路”和一个HV-端的闭合“回路”。此外，蓄电池管理系统还独立检查整个高压装置的绝缘是否正常。出现绝缘故障时，车内的黄色警示灯亮起。
+      </div>
+      <div class="drawing">
+        <div class="ditu">
+          <img class="width100" src="images/ditu2.png">
+          <img class="imgTop" src="images/top2.png">
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/touch-punch.js"></script>
+<script>
+  window.onresize = getRem;
+  function getRem() {
+    document.documentElement.style.fontSize = document.documentElement.offsetWidth / 20 + 'px';
+  }
+  getRem();
+  $(function(){
+    $(".imgTop").show(1000, function(){
+      $(".imgTop").addClass('pulse animated infinite');
+      setTimeout(removeClass, 2000);
+    });
+  });
+  function removeClass() {
+    $(".imgTop").removeClass('pulse animated infinite');
+  }
+</script>
+

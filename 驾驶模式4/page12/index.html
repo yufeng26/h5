@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>无设计稿rem</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maixmum-scale=1.0,user-scalable=no">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      background-color:#93D9F6;
+      width: 100%;
+      height: 100%;
+      font-family:Helvetica;
+      color:#313131;
+    }
+    .outer{
+      position: relative;
+      width: 17.5rem;
+      margin:3rem auto;
+      height: 100%;
+      overflow-y: scroll;
+      background:#fff url(images/bg.png) no-repeat;
+      background-size:100% auto;
+    }
+    .imgHeader{
+      width: 100%;
+      height: 4rem;
+    }
+    .xingshimoshi{
+      position: absolute;
+      margin-top: 1.75rem;
+      width: 13.5rem;
+      left:50%;
+      margin-left:-6.75rem;
+      height: auto;
+    }
+    main{
+      position: absolute;
+      margin: 0.6rem 1.1rem;
+    }
+    .part1 p{
+      margin-top: 0.45rem;
+      font-size: 0.45rem;
+      color:#333333;
+    }
+    .part1 h6{
+      margin-top: 0.45rem;
+    }
+    .part2{
+      width: 12.4rem;
+      height:5.4rem;
+      margin: 1rem auto;
+      border: 1px dashed #333;
+      overflow: hidden;
+      background-color:#c1efff;
+      position: relative;
+    }
+    .part2 .fahrzeug_bg{
+      width: 12.4rem;
+      position: absolute;
+      top:0rem;
+      left:0rem;
+      z-index: 8;
+    }
+    .part2 .dianliang{
+      position: absolute;
+      /* background-color:#00b1eb; */
+      background-color:#38ca44;
+      width: 1.8rem;
+      height: 1.1rem;
+      top:2.4rem;
+      left:6.54rem;
+      z-index: 3;
+    }
+    .part2.zhileng .dianliang{
+      animation:minusWidth 50s linear 0s infinite;
+    }
+    .part2.start .dianliang,.part2.reverse .dianliang{
+      animation:minusWidth 30s linear 0s infinite;
+    }
+    .part2.start.zhileng .dianliang,.part2.reverse.zhileng .dianliang{
+      animation:minusWidth 20s linear 0s infinite;
+    }
+    .part2.slow .dianliang,.part2.reverse.slow .dianliang{
+      animation:minusWidth 40s linear 0s infinite;
+    }
+    .part2.verySlow .dianliang,.part2.reverse.verySlow .dianliang{
+      animation:minusWidth 60s linear 0s infinite;
+    }
+    @keyframes minusWidth{
+			from{
+				width:1.8rem;
+			}
+			to{
+				width:0rem;
+			}
+		}
+    
+    .part2 .berg_1,.part2 .berg_2{
+      position: absolute;
+      width:32rem;
+      height: 3rem;
+      bottom:1.8rem;
+      left:-16rem;
+      z-index: 2;
+    }
+    .part2.reverse .berg_1,.part2.reverse .berg_2{
+      left:0rem;
+    }
+    .part2.start .berg_1{
+      animation:move 4s linear 0s infinite;
+    }
+    .part2.start .berg_2{
+      animation:move 2s linear 0s infinite;
+    }
+    .part2.slow .berg_1{
+      animation:move 8s linear 0s infinite;
+    }
+    .part2.slow .berg_2{
+      animation:move 4s linear 0s infinite;
+    }
+    .part2.verySlow .berg_1{
+      animation:move 12s linear 0s infinite;
+    }
+    .part2.verySlow .berg_2{
+      animation:move 8s linear 0s infinite;
+    }
+    
+    .part2.paused .berg_1,.part2.paused .berg_2{
+      animation-play-state:paused;
+    }
+    @keyframes move{
+			from{
+				left:-16rem;
+			}
+			to{
+				left: 0rem;
+			}
+		}
+    .part2.reverse .berg_1{
+      animation:unmove 4s linear 0s infinite;
+    }
+    .part2.reverse .berg_2{
+      animation:unmove 2s linear 0s infinite;
+    }
+    .part2.reverse.slow .berg_1{
+      animation:unmove 8s linear 0s infinite;
+    }
+    .part2.reverse.slow .berg_2{
+      animation:unmove 4s linear 0s infinite;
+    }
+    .part2.reverse.verySlow .berg_1{
+      animation:unmove 12s linear 0s infinite;
+    }
+    .part2.reverse.verySlow .berg_2{
+      animation:unmove 8s linear 0s infinite;
+    }
+    @keyframes unmove{
+			from{
+				left: 0rem;
+			}
+			to{
+				left:-16rem;
+			}
+		}
+    .part2 .berg_2{
+      right:-1rem;
+      z-index: 1;
+    }
+    .part2 .berg_1 img,.part2 .berg_2 img{
+      float: left;
+    }
+    .part2 .berg_1_1,.part2 .berg_2_1,.part2 .berg_1_2,.part2 .berg_2_2{
+      height: 3rem;
+      width: auto;
+    }
+    .part2 .wolke_1{
+      width: 1.2rem;
+      position: absolute;
+      z-index: 4;
+      left:-3rem;
+      top:0.3rem;
+    }
+    .part2 .wolke_2{
+      width: 1.8rem;
+      position: absolute;
+      z-index: 5;
+      left:-3rem;
+      top:0.3rem;
+    }
+    .part2 .wolke_3{
+      width: 1.4rem;
+      position: absolute;
+      z-index: 6;
+      left:-3rem;
+      top:0.2rem;
+    }
+    .part2.start .wolke_1{
+      animation:moveWolke 6s linear 0s infinite;
+    }
+    .part2.start .wolke_2{
+      animation:moveWolke 2.8s linear 2s infinite;
+    }
+    .part2.start .wolke_3{
+      animation:moveWolke 4.8s linear 2s infinite;
+    }
+    .part2.slow .wolke_1{
+      animation:moveWolke 10s linear 0s infinite;
+    }
+    .part2.slow .wolke_2{
+      animation:moveWolke 4.8s linear 0s infinite;
+    }
+    .part2.slow .wolke_3{
+      animation:moveWolke 6.8s linear 0s infinite;
+    }
+    .part2.verySlow .wolke_1{
+      animation:moveWolke 14s linear 0s infinite;
+    }
+    .part2.verySlow .wolke_2{
+      animation:moveWolke 8s linear 0s infinite;
+    }
+    .part2.verySlow .wolke_3{
+      animation:moveWolke 12s linear 0s infinite;
+    }
+    @keyframes moveWolke{
+			from{
+				left:-3rem;
+			}
+			to{
+				left: 20rem;
+			}
+		}
+    .part2.reverse .wolke_1{
+      animation:unmoveWolke 6s linear 0s infinite;
+    }
+    .part2.reverse .wolke_2{
+      animation:unmoveWolke 2.8s linear 2s infinite;
+    }
+    .part2.reverse .wolke_3{
+      animation:unmoveWolke 4.8s linear 2s infinite;
+    }
+    .part2.reverse.slow .wolke_1{
+      animation:unmoveWolke 10s linear 0s infinite;
+    }
+    .part2.reverse.slow .wolke_2{
+      animation:unmoveWolke 4.8s linear 0s infinite;
+    }
+    .part2.reverse.slow .wolke_3{
+      animation:unmoveWolke 6.8s linear 0s infinite;
+    }
+    .part2.reverse.verySlow .wolke_1{
+      animation:unmoveWolke 14s linear 0s infinite;
+    }
+    .part2.reverse.verySlow .wolke_2{
+      animation:unmoveWolke 8s linear 0s infinite;
+    }
+    .part2.reverse.verySlow .wolke_3{
+      animation:unmoveWolke 12s linear 0s infinite;
+    }
+    @keyframes unmoveWolke{
+			from{
+				left:20rem;
+			}
+			to{
+				left:-3rem;
+			}
+		}
+    .part2.paused .wolke_1, .part2.paused .wolke_2, .part2.paused .wolke_3{
+      animation-play-state:paused;
+    }
+    .part2 .rotation_backw,.part2 .pfeil_rotation{
+      width: 1.7rem;
+      position: absolute;
+      z-index: 9;
+      left:2.32rem;
+      top:3.1rem;
+    }
+    .part2 .rotation_backw{
+      display: none;
+    }
+    .part2.start .pfeil_rotation{
+      animation:rotate 1s linear 0s infinite;
+    }
+    .part2.slow .pfeil_rotation{
+      animation:rotate 3s linear 0s infinite;
+    }
+    .part2.verySlow .pfeil_rotation{
+      animation:rotate 5s linear 0s infinite;
+    }
+    @keyframes rotate{
+			from{
+				transform: rotate(0deg);
+			}
+			to{
+				transform: rotate(-360deg);
+			}
+		}
+    .part2.reverse .rotation_backw{
+      display: inline-block;
+    }
+    .part2.reverse .pfeil_rotation{
+      display: none;
+    }
+    .part2.reverse .rotation_backw{
+      animation:unrotate 1s linear 0s infinite;
+    }
+    .part2.reverse.slow .rotation_backw{
+      animation:unrotate 3s linear 0s infinite;
+    }
+    .part2.reverse.verySlow .rotation_backw{
+      animation:unrotate 5s linear 0s infinite;
+    }
+    @keyframes unrotate{
+			from{
+				transform: rotate(0deg);
+			}
+			to{
+				transform: rotate(360deg);
+			}
+		}
+    .part2.paused .rotation_backw,.part2.paused .pfeil_rotation{
+      animation-play-state:paused;
+    }
+    .part2 .klima_aktiv,.part2 .klima_inaktiv{
+      width: 1.02rem;
+      position: absolute;
+      z-index: 9;
+      left:4.5rem;
+      top:1.3rem;
+    }
+    .part2 .klima_aktiv{
+      display: none;
+    }
+    .part2.zhileng .klima_inaktiv{
+      display: none;
+    }
+    .part2.zhileng .klima_aktiv{
+      display: inline-block;
+    }
+    
+    .part2 .motor_aktiv,.part2 .motor_inaktiv{
+      width: 0.5rem;
+      position: absolute;
+      z-index: 9;
+      left:2.88rem;
+      top:2rem;
+    }
+    .part2 .motor_aktiv{
+      display: none;  
+    }
+    .part2.start .motor_inaktiv,.part2.slow .motor_inaktiv,.part2.verySlow .motor_inaktiv{
+      display: none;
+    }
+    .part2.start .motor_aktiv,.part2.slow .motor_aktiv,.part2.verySlow .motor_aktiv{
+      display: inline-block;
+    }
+    .part2 .anim_motor_pfeil1{
+      width: 0.6rem;
+      position: absolute;
+      z-index: 9;
+      left:3.2rem;
+      top:2.2rem;
+      transform: rotateZ(180deg);
+      opacity: 0;
+    }
+    .part2.slow .anim_motor_pfeil1,.part2.reverse.slow .anim_motor_pfeil1{
+      animation:zhidong1 2s linear 0s infinite;
+    }
+    .part2.slow .anim_motor_pfeil1.other,.part2.reverse.slow .anim_motor_pfeil1.other{
+      animation:zhidong1 2s linear .7s infinite;
+    }
+    .part2.verySlow .anim_motor_pfeil1,.part2.reverse.verySlow .anim_motor_pfeil1{
+      animation:zhidong1 1s linear 0s infinite;
+    }
+    .part2.verySlow .anim_motor_pfeil1.other,.part2.reverse.verySlow .anim_motor_pfeil1.other{
+      animation:zhidong1 1s linear .5s infinite;
+    }
+    @keyframes zhidong1{
+			0%{
+				left:3.2rem;
+        top:2.2rem;
+        opacity: 1;
+			}
+      20%{
+       left:4rem;
+       top:2.2rem;
+      }
+			40%{
+				top:2.88rem;
+        left:4rem;
+			}
+      99%{
+        top:2.88rem;
+				left:6rem;
+        opacity: 1;
+			}
+      100%{
+        top:2.88rem;
+				left:6rem;
+        opacity: 0;
+			}
+		}
+    .part2.start .anim_motor_pfeil1,.part2.reverse .anim_motor_pfeil1{
+      animation:zhidong2 2s linear 0s infinite;
+    }
+    .part2.start .anim_motor_pfeil1.other,.part2.reverse .anim_motor_pfeil1.other{
+      animation:zhidong2 2s linear .7s infinite;
+    }
+    @keyframes zhidong2{
+			0%{
+				
+        top:2.88rem;
+				left:6rem;
+        opacity: 1;
+			}
+      60%{
+        top:2.88rem;
+        left:4rem;
+      }
+			80%{
+			left:4rem;
+       top:2.2rem;
+			}
+      99%{
+        left:3.2rem;
+        top:2.2rem;
+        opacity: 1;
+			}
+      100%{
+        left:3.2rem;
+        top:2.2rem;
+        opacity: 0;
+			}
+		}
+    .part2 .anim_motor_pfeil2,.part2 .anim_motor_pfeil2.other{
+      width: 0.6rem;
+      position: absolute;
+      z-index: 9;
+      left:6.46rem;
+      top:2.32rem;
+      opacity: 0;
+      transform: rotateZ(0deg);
+    }
+    .part2.zhileng .anim_motor_pfeil2{
+      animation:zhileng 2s linear 0s both infinite;
+    }
+    .part2.zhileng .anim_motor_pfeil2.other{
+      animation:zhileng 2s linear .7s both infinite;
+    }
+    @keyframes zhileng{
+      0%{
+				left:6.46rem;
+        top:2.32rem;
+        opacity: 0;
+        transform: rotateZ(0deg);
+			}
+			5%{
+				left:6rem;
+        top:2.32rem;
+        opacity: 1;
+        transform: rotateZ(0deg);
+			}
+      80%{
+        left:4.8rem;
+        top:2.32rem;
+        transform: rotateZ(0deg);
+      }
+      81%{
+        left:4.8rem;
+        top:2.32rem;
+        transform: rotateZ(90deg);
+      }
+      99%{
+        left:4.8rem;
+        top:1.8rem;
+        opacity: 1;
+        transform: rotateZ(90deg);
+			}
+      100%{
+        left:4.8rem;
+        top:1.8rem;
+        opacity: 0;
+        transform: rotateZ(90deg);
+			}
+		}
+    .part3{
+      width: 12.8rem;
+      height:auto;
+      overflow: hidden;
+      margin: 0rem auto;
+      position: relative;
+    }
+    .part3 .animation_bg{
+      width: 12.8rem;
+      height:auto;
+      margin: 0rem auto;
+      overflow: hidden;
+    }
+    .part3 .klima{
+      position: absolute;
+      width: 2rem;
+      top: 1rem;
+      left:1.6rem;
+      opacity:0.3;
+    }
+    .part3.zhileng .klima{
+      opacity:1;
+    }
+    .part3 .switch_klima_on,.part3 .switch_klima_off{
+      position: absolute;
+      width: 2.2rem;
+      top: 4rem;
+      left:1.6rem;
+    }
+    .part3 .switch_klima_on{
+      display: none;
+    }
+    .part3 .iswitch_klima_knopf{
+      position: absolute;
+      width: 1.1rem;
+      top: 3.9rem;
+      left:1.6rem;
+      z-index: 3;
+    }
+    .part3.zhileng .switch_klima_off{
+      display: none;
+    }
+    .part3.zhileng .switch_klima_on{
+      display: inline-block;
+    }
+    .part3.zhileng .iswitch_klima_knopf{
+      left:2.7rem;
+    }
+    .part3 .tacho{
+      position: absolute;
+      width: 2rem;
+      top: 0.8rem;
+      left:6.2rem;
+      opacity:0.3;
+    }
+    .part3.jiasu .tacho,.part3.zhidong .tacho,.part3.zhidongplus .tacho{
+      opacity: 1;
+    }
+    .part3 .switch_gas_off,.part3 .switch_gas_on{
+      position: absolute;
+      width: 4.2rem;
+      top: 4rem;
+      left:5.1rem;
+    }
+    .part3 .switch_gas_on{
+      display: none;
+    }
+    .part3 .tishi{
+      font-size: 0.6rem;
+      position: absolute;
+      text-align: center;
+      top: 3rem;
+      left:6.6rem;
+      z-index: 12;
+    }
+    .part3 .iswitch_klima_knopf_other,.part3 .switch_klima_knopf_blank{
+      position: absolute;
+      width: 1.1rem;
+      height: auto;
+      top: 3.9rem;
+      left:5.1rem;
+      z-index: 3;
+    }
+    .part3 .switch_gas_aktiv_beschleunigen,.part3 .switch_gas_aktiv_bremsen_1,.part3 .switch_gas_aktiv_bremsen_2{
+      position: absolute;
+      width: 1.1rem;
+      height: auto;
+      top: 3.9rem;
+      left:6.1rem;
+      z-index: 10;
+      visibility:hidden;
+    }
+    .part3 .switch_gas_aktiv_bremsen_1{
+      left:7.1rem;
+    }
+    .part3 .switch_gas_aktiv_bremsen_2{
+      left:8.2rem;
+    }
+    .part3 .switch_klima_knopf_blank{
+      display: none;
+    }
+    .part3.jiasu .iswitch_klima_knopf_other,.part3.jiasu .switch_gas_off{
+      display: none;
+    }
+    .part3.jiasu .switch_gas_on,.part3.jiasu .switch_klima_knopf_blank{
+      display: inline-block;
+    }
+    .part3.jiasu .switch_klima_knopf_blank{
+      left:6.1rem;
+    }
+    .part3.jiasu .switch_gas_aktiv_beschleunigen{
+      visibility:visible;
+    }
+    .part3.zhidong .iswitch_klima_knopf_other,.part3.zhidong .switch_gas_off{
+      display: none;
+    }
+    .part3.zhidong .switch_gas_on,.part3.zhidong .switch_klima_knopf_blank{
+      display: inline-block;
+    }
+    .part3.zhidong .switch_klima_knopf_blank{
+      left:7.1rem;
+    }
+    .part3.zhidong .switch_gas_aktiv_bremsen_1{
+      visibility:visible;
+    }
+    .part3.zhidongplus .iswitch_klima_knopf_other,.part3.zhidongplus .switch_gas_off{
+      display: none;
+    }
+    .part3.zhidongplus .switch_gas_on,.part3.zhidongplus .switch_klima_knopf_blank{
+      display: inline-block;
+    }
+    .part3.zhidongplus .switch_klima_knopf_blank{
+      left:8.2rem;
+    }
+    .part3.zhidongplus .switch_gas_aktiv_bremsen_2{
+      visibility:visible;
+    }
+    .part3 .dangwei span{
+      position: absolute;
+      width:0.8rem;
+      height: 0.8rem;
+      line-height: 0.8rem;
+      font-size: 0.4rem;
+      text-align: center;
+      border-radius: 0.8rem;
+      background-color: lightblue;
+      z-index: 10;
+      top:0.7rem;
+      left:9.6rem;
+      color:rgb(0, 133, 177);
+    }
+    .part3 .dangwei span:nth-child(2){
+      top:1.6rem;
+    }
+    .part3 .dangwei span:nth-child(3){
+      top:2.5rem;
+    }
+    .part3 .dangwei span:nth-child(4){
+      top:3.4rem;
+    }
+    .part3 .dangwei span:nth-child(5){
+      top:4.3rem;
+    }
+    .part3 .dangwei .range{
+      position: relative;
+      position: absolute;
+      width:0.5rem;
+      height: 4rem;
+      background-color: lightblue;
+      top:0.9rem;
+      left:11.2rem;
+    }
+    .part3 .dangwei .range .kuai{
+      position: absolute;
+      width:0.9rem;
+      height:0.8rem;
+      background-color: rgb(0, 117, 156);
+      top:0rem;
+      left:-0.18rem;
+    }
+    .part4{
+      font-size: 0.6rem;
+      text-align: center;
+      margin-left:0.6rem;
+    }
+    .part4 span:nth-child(2){
+      margin-left:2.8rem;
+      margin-right:1.6rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer">
+    <div class="imgHeader">
+      <image src="images/index7/xingshimoshi.png" class="xingshimoshi" />
+    </div>
+    <div>
+      <div class="part part1">
+        <p>
+          为使BEV能够移动，LE 会从高压蓄电池中获取所需的电能。 为此，需将获得的直流电转换为交流电并传输至电动机。 根据交流电相应的频率，电动机的转速会发生改变,即频率越高，转速和行驶速度也就越快。
+        </p>
+        <h6>请立即尝试一下吧!</h6>
+        <p>
+          选择任意一个档位 (优先选择R、D或B档)，点击油门踏板并观察图示动画的反应。点击图片上方的加号键，了解详细信息。
+        </p>
+        <p>
+          根据已有知识，BEV 车辆的空调和加热装置也需要利用縞压蓄电池中的电能。空调系统的运行请点击互动图示查看。请操作具体的操作元件，并观察所产生的变化。
+        </p>
+      </div>
+      <div class="part part2">
+          <div class="berg_1">
+            <img src="images/index7/bild_animation_fahrzeug_berg_1.png" class="berg_1_1" />
+            <img src="images/index7/bild_animation_fahrzeug_berg_1.png" class="berg_1_2" />
+          </div>
+          <div class="berg_2">
+            <img src="images/index7/bild_animation_fahrzeug_berg_2.png" class="berg_2_1" />
+            <img src="images/index7/bild_animation_fahrzeug_berg_2.png" class="berg_2_2" />
+          </div>
+          <img src="images/index7/bild_animation_fahrzeug_wolke_1.png" class="wolke_1" />
+          <img src="images/index7/bild_animation_fahrzeug_wolke_2.png" class="wolke_2" />
+          <img src="images/index7/bild_animation_fahrzeug_wolke_3.png" class="wolke_3" />
+          <img src="images/index7/icon_animation_car_pfeil_rotation_backw.png" class="rotation_backw" />
+          <img src="images/index7/icon_animation_car_pfeil_rotation.png" class="pfeil_rotation" />
+          <img src="images/index7/icon_animation_klima_aktiv.png" class="klima_aktiv" />
+          <img src="images/index7/icon_animation_klima_inaktiv.png" class="klima_inaktiv" />
+          <img src="images/index7/icon_animation_motor_aktiv.png" class="motor_aktiv" />
+          <img src="images/index7/icon_animation_motor_inaktiv.png" class="motor_inaktiv" />
+          <img src="images/index7/bild_animation_fahrzeug_anim_motor_pfeil.png" class="anim_motor_pfeil1" />
+          <img src="images/index7/bild_animation_fahrzeug_anim_motor_pfeil.png" class="anim_motor_pfeil1 other" />
+          <img src="images/index7/bild_animation_fahrzeug_anim_motor_pfeil.png" class="anim_motor_pfeil2" />
+          <img src="images/index7/bild_animation_fahrzeug_anim_motor_pfeil.png" class="anim_motor_pfeil2 other" />
+          
+          <span class="dianliang"></span>
+          <img src="images/index7/bild_animation_fahrzeug_bg.png" class="fahrzeug_bg"/>
+      </div>
+      <div class="part part3">
+        <img src="images/index7/icon_animation_bg.png" class="animation_bg" />
+        <img src="images/index7/icon_animation_klima.png" class="klima" />
+        <p class="tishi">静止</p>
+        <img src="images/index7/icon_animation_switch_klima_knopf.png" class="iswitch_klima_knopf" />
+        <img src="images/index7/icon_animation_switch_klima_on.png" class="switch_klima_on" />
+        <img src="images/index7/icon_animation_switch_klima_off.png" class="switch_klima_off" />
+        <img src="images/index7/icon_animation_tacho.png" class="tacho" />
+        <img src="images/index7/icon_animation_switch_klima_knopf.png" class="iswitch_klima_knopf_other" />
+        <img src="images/index7/icon_animation_switch_gas_aktiv_beschleunigen.png" class="switch_gas_aktiv_beschleunigen" />
+        <img src="images/index7/icon_animation_switch_gas_aktiv_bremsen_1.png" class="switch_gas_aktiv_bremsen_1" />
+        <img src="images/index7/icon_animation_switch_gas_aktiv_bremsen_2.png" class="switch_gas_aktiv_bremsen_2" />
+        <img src="images/index7/icon_animation_switch_gas_off.png" class="switch_gas_off" />
+        <img src="images/index7/icon_animation_switch_gas_on.png" class="switch_gas_on" />
+        <img src="images/index7/icon_animation_switch_klima_knopf_blank.png" class="switch_klima_knopf_blank" />
+        <div class="dangwei">
+          <span class="p">p</span>
+          <span class="r">r</span>
+          <span class="n">n</span>
+          <span class="d">d</span>
+          <span class="b">b</span>
+          <p class="range">
+            <i class="kuai"></i>
+          </p>
+        </div>
+      </div>
+      <div class="part4">
+        <span>空调</span>
+        <span>油门踏板</span>
+        <span>档位</span>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/touch-punch.js"></script>
+<script>
+  window.onresize = getRem;
+  function getRem() {
+    document.documentElement.style.fontSize = document.documentElement.offsetWidth / 20 + 'px';
+  }
+  getRem();
+  $(function() {
+    var iszhileng = false; //制冷
+    var isstop = true; // 停
+    var ispaused = false; // 空档（没用上，😂）
+    var isjiasu = false; // 加速
+    var zhidong = false; // 制动
+    var zhidongplus = false; // 剧烈制动
+    var item = ($(".range").height() - $(".kuai").height()) / 5;
+    $(".kuai").css({
+      "top": item * 2 + "px"
+    });
+    $(".part3 .dangwei span").eq(2).css({
+      backgroundColor: "rgb(0, 117, 156)",
+      color: "#fff"
+    });
+    $(".kuai").draggable({
+      containment: ".range",
+      axis: "y",
+      drag: function (event, ui) {
+        var num = parseInt(ui.position.top / item)
+        if(num == 0){
+          isstop = true;
+          isjiasu = false;
+          zhidong = false;
+          zhidongplus = false;
+          $(".part2").removeClass("start");
+          $(".part2").removeClass("paused");
+          $(".part2").removeClass("reverse");
+          $(".part2").removeClass("slow");
+          $(".part2").removeClass("verySlow");
+          $(".part3").removeClass("jiasu");
+          $(".part3").removeClass("zhidong");
+          $(".part3").removeClass("zhidongplus");
+        }else if(num == 1){
+           isstop = false;
+          isjiasu = true;
+          zhidong = false;
+          zhidongplus = false;
+          $(".part2").addClass("start");
+          $(".part3").addClass("jiasu");
+          $(".part2").removeClass("reverse");
+          $(".part2").removeClass("slow");
+          $(".part2").removeClass("verySlow");
+          $(".part3").removeClass("zhidong");
+          $(".part3").removeClass("zhidongplus");
+        } else if (num == 2) {
+          isstop = true;
+          isjiasu = false;
+          zhidong = false;
+          zhidongplus = false;
+          $(".part2").removeClass("start");
+          $(".part2").removeClass("paused");
+          $(".part2").removeClass("reverse");
+          $(".part2").removeClass("slow");
+          $(".part2").removeClass("verySlow");
+          $(".part3").removeClass("jiasu");
+          $(".part3").removeClass("zhidong");
+          $(".part3").removeClass("zhidongplus");
+        } else if (num == 3) {
+          isstop = false;
+          isjiasu = false;
+          zhidong = true;
+          zhidongplus = false;
+          $(".part2").addClass("slow");
+          $(".part3").addClass("zhidong");
+          $(".part2").removeClass("start");
+          $(".part2").removeClass("reverse");
+          $(".part2").removeClass("verySlow");
+          $(".part3").removeClass("jiasu");
+          $(".part3").removeClass("zhidongplus");
+        } else if (num == 4) {
+          isstop = false;
+          isjiasu = false;
+          zhidong = false;
+          zhidongplus = true;
+          $(".part2").addClass("verySlow");
+          $(".part3").addClass("zhidongplus");
+          $(".part2").removeClass("start");
+          $(".part2").removeClass("reverse");
+          $(".part2").removeClass("slow");
+          $(".part3").removeClass("jiasu");
+          $(".part3").removeClass("zhidong");
+        }
+        $(".part3 .dangwei span").eq(num).css({
+          backgroundColor: "rgb(0, 117, 156)",
+          color:"#fff"
+        }).siblings("span").css({
+          backgroundColor: "lightblue",
+          color: "rgb(0, 133, 177)"
+        })
+      },
+    });
+    $(".iswitch_klima_knopf").click(function() {
+      if(!iszhileng){
+        $(".part2,.part3").addClass("zhileng");
+      }else{
+        $(".part2,.part3").removeClass("zhileng");
+      }
+      iszhileng = !iszhileng;
+    });
+    $(".switch_gas_off,.switch_gas_on").click(function(e) {
+      var rem = document.documentElement.offsetWidth / 20
+      if (e.offsetX > 0 && e.offsetX <= 1 * rem) {
+        isstop = true;
+        isjiasu = false;
+        zhidong = false;
+        zhidongplus = false;
+        $(".part2").removeClass("start");
+        $(".part2").removeClass("paused");
+        $(".part2").removeClass("reverse");
+        $(".part2").removeClass("slow");
+        $(".part2").removeClass("verySlow");
+        $(".part3").removeClass("jiasu");
+        $(".part3").removeClass("zhidong");
+        $(".part3").removeClass("zhidongplus");
+        $(".kuai").css({
+          "top": item*2 + "px"
+        });
+        $(".part3 .dangwei span").eq(2).css({
+          backgroundColor: "rgb(0, 117, 156)",
+          color: "#fff"
+        }).siblings("span").css({
+          backgroundColor: "lightblue",
+          color: "rgb(0, 133, 177)"
+        });
+        $(".tishi").text("静止").css({
+          left: "6.6rem"
+        });;
+      }else if(e.offsetX>1* rem && e.offsetX <= 2 * rem){
+        isstop = false;
+        isjiasu = true;
+        zhidong = false;
+        zhidongplus = false;
+        $(".part2").addClass("start");
+        $(".part3").addClass("jiasu");
+        $(".part2").removeClass("reverse");
+        $(".part2").removeClass("slow");
+        $(".part2").removeClass("verySlow");
+        $(".part3").removeClass("zhidong");
+        $(".part3").removeClass("zhidongplus");
+
+        $(".kuai").css({
+          "top": item + "px"
+        });
+        $(".part3 .dangwei span").eq(1).css({
+          backgroundColor: "rgb(0, 117, 156)",
+          color: "#fff"
+        }).siblings("span").css({
+          backgroundColor: "lightblue",
+          color: "rgb(0, 133, 177)"
+        });
+        $(".tishi").text("加速").css({
+          left: "6.6rem"
+        });
+      }else if (e.offsetX > 2 * rem && e.offsetX <= 3 * rem) {
+        isstop = false;
+        isjiasu = false;
+        zhidong = true;
+        zhidongplus = false;
+        $(".part2").addClass("slow");
+        $(".part3").addClass("zhidong");
+        $(".part2").removeClass("start");
+        $(".part2").removeClass("reverse");
+        $(".part2").removeClass("verySlow");
+        $(".part3").removeClass("jiasu");
+        $(".part3").removeClass("zhidongplus");
+        $(".tishi").text("轻微制动").css({
+          left: "6rem"
+        });;
+      } else if (e.offsetX > 3 * rem) {
+        isstop = false;
+        isjiasu = false;
+        zhidong = false;
+        zhidongplus = true;
+        $(".part2").addClass("verySlow");
+        $(".part3").addClass("zhidongplus");
+        $(".part2").removeClass("start");
+        $(".part2").removeClass("reverse");
+        $(".part2").removeClass("slow");
+        $(".part3").removeClass("jiasu");
+        $(".part3").removeClass("zhidong");
+        $(".tishi").text("剧烈制动").css({
+          left: "6rem"
+        });;
+      }
+    })
+  });
+</script>

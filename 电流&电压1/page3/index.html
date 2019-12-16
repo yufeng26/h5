@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>无设计稿rem</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maixmum-scale=1.0,user-scalable=no">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      background-color:#93D9F6;
+      width: 100%;
+      height: 100%;
+      font-family:Helvetica;
+    }
+    .outer{
+      position: relative;
+      width: 17.5rem;
+      margin:3rem auto;
+      height: 100%;
+      background: url(images/bg.png) no-repeat;
+      background-size:100% auto;
+    }
+    .imgHeader{
+      width: 100%;
+      height: 4rem;
+    }
+    .dianya{
+      position: absolute;
+      margin-top: 1.75rem;
+      width: 13.5rem;
+      left:50%;
+      margin-left:-6.75rem;
+      height: auto;
+    }
+    main{
+      position: absolute;
+      margin-top: 0.6rem;
+    }
+    .title{
+      font-size: 1rem;
+      padding: 0.5rem;
+      padding-bottom: 0.1rem;
+    }
+    .content{
+      font-size: 0.6rem;
+      padding: 0.5rem;
+      text-indent: 2em;
+    }
+    .drawing{
+      position: relative;
+      margin-top: 1.2rem;
+      width: 11.2rem;
+      height: 11.2rem;
+      background: url("images/index1/kuang.png") no-repeat;
+      background-size:100% auto;
+      position:absolute;
+      left:50%;
+      margin-left: -5.6rem;
+    }
+    .dianyuan{
+      position: absolute;
+      width: 1rem;
+      top:1.4rem;
+      left:2.5rem;
+    }
+    .jiantou{
+      position: absolute;
+      width: 0.6rem;
+      top:1.4rem;
+      right:2.5rem;
+    }
+    .danwei{
+      position: absolute;
+      bottom: -1.8rem;
+      width:11rem;
+      margin:0.2rem auto;
+    }
+    .range{
+      position: absolute;
+      top:6rem;
+      width:8.5rem;
+      height: 0.1875rem;
+      background-color:#3AB3C5;
+      left:50%;
+      margin-left:-4.25rem;
+    }
+    .kuai{
+      position: absolute;
+      top:-0.12rem;
+      left:0rem;
+      width:0.6rem;
+      height: 0.4rem;
+      background-color:#F3A940;
+    }
+    .range2{
+      top:7.6rem;
+    }
+    .num{
+      font-size: 0.6rem;
+    }
+    .num1{
+      position: absolute;
+      top:1.5rem;
+      left:4rem;
+    }
+    .num2{
+      position: absolute;
+      top:2.8rem;
+      left:4rem;
+    }
+    .num3{
+      position: absolute;
+      top:2rem;
+      left:9.4rem;
+    }
+    .range1::before,.range2::before{
+      content:"0V";
+      left:0rem;
+      top:0.5rem;
+      font-size: 0.6rem;
+    }
+    .range1::after,.range2::after{
+      position: absolute;
+      right:0rem;
+      top:0.5rem;
+      content:"10V";
+      font-size: 0.6rem;
+    }
+    .dianshi1,.dianshi2{
+      width:2rem;
+      height: auto;
+      position: absolute;
+      top:-0.5rem;
+      left:3.6rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer">
+    <div class="imgHeader">
+      <image src="images/index1/dianya.png" class="dianya" />
+    </div>
+    <main>
+      <div class="title">
+        电压表示电势差
+      </div>
+      <div class="content">
+        电势就好比是一个相对于固定参考面的平面。如果将电势比作一栋大楼,以地面为参考平面，则一楼就是零电势。二楼就是比之前更高的一个电势。电压和电势指的谁都是伏特。在下图示例中，电压U示电势2减电势1的结果。因此，电压源始终有两个触点或电极。通常将其称为正极和负极。移动电势的调节滑块并观察对电压的影响。
+      </div>
+      <div class="drawing">
+        <img src="images/index1/dianyuan.png" class="dianyuan"/>
+        <span class="num num1">0 V</span>
+        <span class="num num2">0 V</span>
+        <img src="images/index1/jiantou.png"  class="jiantou" />
+        <span class="num num3">0 V</span>
+        <img src="images/index1/danwei.png" class="danwei" />
+        <p class="range range1">
+          <img src="images/index1/dianshi1.png" class="dianshi1" />
+          <span class="kuai kuai1"><span>
+        </p>
+        <p class="range range2">
+          <img src="images/index1/dianshi2.png" class="dianshi2" />
+          <span class="kuai kuai2"><span>
+        </p>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/touch-punch.js"></script>
+<script>
+  window.onresize = getRem;
+  function getRem() {
+    document.documentElement.style.fontSize = document.documentElement.offsetWidth / 20 + 'px';
+  }
+  getRem();
+  $(function(){
+     $(".kuai1").draggable({
+      containment: ".range1",
+      axis: "x",
+      scroll: false,
+      drag: function(event, ui){
+        console.log(ui.position.left);
+        var item = $(".range1").width() / 11;  
+        $(".num1").text(parseInt(ui.position.left / item)+" V");
+        $(".num3").text(parseInt(ui.position.left / item) + " V");
+      },
+    });
+    $(".kuai2").draggable({
+      containment: ".range2",
+      axis: "x",
+      scroll: false,
+      drag: function (event, ui) {
+        console.log(ui.position.left);
+        var item = $(".range1").width() / 11;
+        $(".num2").text(parseInt(ui.position.left / item) * -1 + " V");
+        $(".num3").text(10 - parseInt(ui.position.left / item)  + " V");
+      },
+    });
+  })
+
+</script>
+

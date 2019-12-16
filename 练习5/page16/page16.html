@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>练习:获得更多驾驶乐趣最后一步</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maixmum-scale=1.0,user-scalable=no">
+  <link rel="stylesheet" href="css/animate.min.css"></link>
+  <link rel="stylesheet" href="css/style.css"></link>
+  <style>
+    .title{
+      padding: 0.5rem 2rem 0.1rem 1.6rem;
+      font-size: 0.6rem;
+    }
+    main{
+      width: 100%;
+    }
+    img.width100{
+      width: 100%;
+    }
+    .car{
+      padding: 0.5rem 2rem 0.1rem 1.6rem;
+    }
+    .inputDiv{
+      font-size: 0.6rem;
+      padding: 0.4rem 1.6rem;
+      line-height: 1.5rem;
+    }
+    .sureButton{
+      text-align: center;
+      position: relative;
+      margin: 0.2rem 0;
+    }
+    .shandian{
+      height: 4rem;
+      display: block;
+      margin: 1rem auto 0;
+    }
+    .width50{
+      display: inline-block;
+      width: 48%;
+      padding-left: 6%;
+      box-sizing: border-box;
+    }
+    .checkButton{
+        color: #666666;
+        font-size: 0.8rem;
+        width: 4rem;
+        height: 1.2rem;
+        display: inline-block;
+        background-color: #f5f5f5;
+        border-radius: 0.4rem;
+        border:1px solid rgba(143,143,153,1);
+        text-align: center;
+    }
+    .yes{
+        background-color: #51a351;
+        color: #ffffff;
+    }
+    .no{
+        background-color: red;
+        color: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer">
+    <div class="imgHeader">
+      <img src="images/tlt15.png" class="dianya" />
+    </div>
+    <div class="car">
+    	<img src="images/ddqc.png" class="width100" />
+    </div>
+    <main style="margin-top: -4rem;">
+        <div class="title">请标出可以在纯电动汽车中找到的高压组件</div>
+        <form action="" class="inputDiv">
+            <p class="listItem"><input type="checkbox" name="one" value="1">PE(电力电子装置)</p>
+            <p class="listItem"><input type="checkbox" name="one" value="2">高压制热 </p>
+            <p class="listItem"><input type="checkbox" name="one" value="3">高压空调压缩机 </p>
+            <p class="listItem"><input type="checkbox" name="one" value="4">流量补偿器 </p>
+            <p class="listItem"><input type="checkbox" name="one" value="5">发动机控制单元 </p>
+            <p class="listItem"><input type="checkbox" name="one" value="6">驱动电机 </p>
+            <p class="listItem"><input type="checkbox" name="one" value="7">电池充电器 </p>
+            <p class="listItem"><input type="checkbox" name="one" value="8">高压电池 </p>
+            <p class="listItem"><input type="checkbox" name="one" value="9">内燃机 </p>
+            <p class="listItem"><input type="checkbox" name="one" value="10">保养断电 </p>  
+        </form>
+        <div class="sureButton">
+            <span class="width100"><span class="checkButton" id="checkOne">提交</span></span>
+        </div>
+    </main>
+  </div>
+</body>
+</html>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/touch-punch.js"></script>
+<script>
+  window.onresize = getRem;
+  function getRem() {
+    document.documentElement.style.fontSize = document.documentElement.offsetWidth / 20 + 'px';
+  }
+  getRem();
+  $(function(){ 
+    $("#checkOne").click(function(){
+      var str = [];
+      $("input[name='one']:checked").each(function (index, item) {
+          if ($("input[name='one']:checked").length-1==index) {
+              str.push($(this).val());
+          } else {
+            str.push($(this).val());
+          }  
+      });
+      if (str.length ==4 && str.includes("1") && str.includes("3") && str.includes("5") && str.includes("8")) {
+        $("#checkOne").addClass("yes");
+        $("#checkOne").text("正确!");
+        setTimeout(function(){
+          $("#checkOne").removeClass("yes");
+          $("#checkOne").text("提交");
+        },2000);
+      } else {
+        $("#checkOne").addClass("no");
+        $("#checkOne").text("错误...");
+        setTimeout(function(){
+            $("#checkOne").removeClass("no");
+            $("#checkOne").text("提交");
+        },2000);
+      }
+    });
+  });
+</script>
+

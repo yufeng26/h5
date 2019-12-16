@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>充电过程</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maixmum-scale=1.0,user-scalable=no">
+  <link rel="stylesheet" href="css/animate.min.css"></link>
+  <link rel="stylesheet" href="css/style.css"></link>
+  <style>
+    .title{
+      padding: 0.5rem 3rem 0.1rem 2.4rem;
+    }
+    main{
+      width: 100%;
+    }
+    .drawing{
+      margin: 0.6rem auto 0;
+      width: 12rem;
+    }
+    img.pic{
+      height: 8rem;
+      display: block;
+      margin: 0 auto;
+    }
+    .infor{
+      padding-left: 2rem;
+      font-size: 0.4rem;
+      line-height: 1rem;
+    }
+    .notice {
+    	padding-bottom: 0.6rem;
+    	color: #F3A940;
+    	font-size: 0.6rem;
+    	display: inline-block;
+    }
+    .notice img{
+    	width: 0.8rem;
+    	display: inline-block;
+    	border: 1px dashed #cccccc;
+    	margin-left: 5rem;
+    }
+    .btnGroup{
+    	margin: 0.8rem 0;
+    }
+    .btnGroup .button{
+    	width: 33%;
+    	color: #666666;
+        font-size: 0.5rem;
+        height: 1.2rem;
+        line-height: 1.2rem;
+        display: inline-block;
+        background-color: #f5f5f5;
+        border-radius: 0.4rem;
+        border:1px solid rgba(143,143,153,1);
+        text-align: center;
+        margin-left: 1%;
+    }
+    .btnGroup .button:first-child{
+    	width: 26%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer" style="overflow-y: auto;">
+    <div class="imgHeader">
+      <img src="images/tlt17.png" class="dianya" />
+    </div>
+    <main>
+      <div class="content">
+      	高压电池既可以在公共充电站充电，也可以在家中充电.</br>
+家中充电：建议安装家用交流充电站，需由专业人员安装，给汽车充电的最大功率输出可达3.6KW，最大持续电流为16A.</br>
+此外，也可以使用带充电控制器的交流充电电缆.该电缆配有连接家用电源插座的连接器以及一个与车辆适配的充电连接器，可提供最高达2.3KW的供电输出功率。在充电过程中，充电控制器可控制电流不超过10A，这样可以保护插座免于过载。公共充电：除了配有充电控制器的交流充电电缆之外，随车还配备一条有两个插头的交流充电站充电电缆.其中的一个插头用于接插汽车，另一个则接插公共交流充电站.这样最大充电功率就可达到3.6KW.
+      </div>
+      <div class="drawing">
+        <div class="ditu">
+          <img class="pic" src="images/chong1.png">
+        </div>
+      </div>
+      <div class="btnGroup">
+      	<span class="button" id="button1">交流充电电缆</span>
+      	<span class="button" id="button2">家用交流充电电站</span>
+      	<span class="button" id="button3">公共交流充电电站</span>
+      </div>
+      <div class="notice">
+        	<img src="images/xiaoshou.png" />
+        	<span>点击切换不同充电示意图</span>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/touch-punch.js"></script>
+<script>
+  window.onresize = getRem;
+  function getRem() {
+    document.documentElement.style.fontSize = document.documentElement.offsetWidth / 20 + 'px';
+  }
+  getRem();
+  $(function(){ 
+    $("#button1").click(function(){
+    	$(".pic").attr("src", "images/chong1.png");
+    });
+    $("#button2").click(function(){
+    	$(".pic").attr("src", "images/chong3.png");
+    });
+    $("#button3").click(function(){
+    	$(".pic").attr("src", "images/chong2.png");
+    });
+  });
+</script>

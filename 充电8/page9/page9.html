@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>电机</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maixmum-scale=1.0,user-scalable=no">
+  <link rel="stylesheet" href="css/animate.min.css"></link>
+  <link rel="stylesheet" href="css/style.css"></link>
+  <style>
+    .title{
+      padding: 0.5rem 3rem 0.1rem 2.4rem;
+    }
+    main{
+      width: 100%;
+    }
+    .drawing{
+      margin: 0.6rem auto 0;
+      width: 240px;
+    }
+    .ditu {
+      position: relative;
+    }
+    img.width100{
+      width: 100%;
+      height: 100%;
+    }
+    .infor{
+      padding-left: 1rem;
+      font-size: 0.5rem;
+      line-height: 1rem;
+      color: #3AB3C5;
+    }
+    .notice {
+    	color: #F3A940;
+    	font-size: 0.6rem;
+    	display: inline-block;
+    }
+    .notice img{
+    	width: 0.8rem;
+    	display: inline-block;
+    	border: 1px dashed #cccccc;
+    	margin-left: 5rem;
+    }
+    .lastPic{
+    	width: 12rem;
+    	margin: 0 auto;
+    	display: block;
+    }
+    .word{
+      display: inline-block;
+      z-index: 9;
+      position: absolute;
+      padding: 0.1rem;
+      font-size: 0.8rem;
+      background-color:#F5F5F5;
+    }
+    .word1{
+      left: 1rem;
+      top: 1.6rem;
+    }
+    .word2{
+      left: 1.6rem;
+      top: -0.4rem;
+    }
+    .word3{
+      left: 3rem;
+      top: 1.6rem;
+    }
+    .word4{
+      left:1.6rem;
+      top: 4rem;
+    }
+    .word5{
+      left: 6.4rem;
+      top: 4rem;
+    }
+    .word6{
+      left: 7.2rem;
+      top: 1.6rem;
+    }
+    .word7{
+      left: 10rem;
+      top: 0.8rem;
+    }
+    .word8{
+      left: 10rem;
+      top: 5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer" style="overflow-y: auto;">
+    <div class="imgHeader">
+      <img src="images/tlt18.png" class="dianya" />
+    </div>
+    <main>
+      <div class="drawing">
+        <div class="ditu">
+          <img class="width100" src="images/ditu18.png" usemap="#redian">
+          <map name="#redian">
+            <area shape="rect" coords="0,0,76,76" onclick="showText(1)">
+            <area shape="rect" coords="97,22,117,29" onclick="showText(2)">
+            <area shape="rect" coords="102,30,112,66" onclick="showText(3)">
+            <area shape="rect" coords="97,68,117,73" onclick="showText(4)">
+            <area shape="rect" coords="104,75,119,100" onclick="showText(5)">
+            <area shape="rect" coords="139,26,192,68" onclick="showText(6)">
+            <area shape="rect" coords="202,6,236,18" onclick="showText(7)">
+            <area shape="rect" coords="202,74,236,88" onclick="showText(8)">
+          </map>
+          <span class="word word1">内燃机</span>
+          <span class="word word2">带有磁性线圈的定子</span>
+          <span class="word word3">带有永磁性的转子</span>
+          <span class="word word4">带有磁性线圈的定子</span>
+          <span class="word word5">高压接线</span>
+          <span class="word word6">变速箱</span>
+          <span class="word word7">驱动轴</span>
+          <span class="word word8">驱动轴</span>
+        </div>
+      </div>
+      <div class="notice">
+        	<img src="images/xiaoshou.png" />
+        	<span>点击元件显示名称</span>
+      </div>
+      <div class="content">
+      	<p>
+                                电机位于内燃机和变速箱之间，由三相交流电压供电，提供电压的是动力电子电路.</br>
+电机包含一个转子和一个定子.转子内含有永磁体，定子内装有磁性线圈.定子被永久安装在齿轮箱内.                            
+      	</p>
+      	<p style="margin: 0.4rem 0;">电机具有以下功能：</p>
+        <ul class="infor">                  
+          <li>1.内燃机点火</li>
+          <li>2.为高压电池充电的交流发电机</li>
+          <li>3.驱动车辆</li>
+        </ul>
+      </div>
+      <img src="images/pic18.png" class="lastPic">
+    </main>
+  </div>
+</body>
+</html>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/touch-punch.js"></script>
+<script>
+  window.onresize = getRem;
+  function getRem() {
+    document.documentElement.style.fontSize = document.documentElement.offsetWidth / 20 + 'px';
+  }
+  getRem();
+  function showText(num){
+      if(num){
+        $(".word"+ num).show();
+        setTimeout(function(){
+         $(".word"+ num).hide(1000);
+        },3000);
+      }
+  };
+  $(function(){ 
+    $(".word").hide();
+  });
+</script>

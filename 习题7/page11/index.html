@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>无设计稿rem</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maixmum-scale=1.0,user-scalable=no">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      background-color:#93D9F6;
+      width: 100%;
+      height: 100%;
+      font-family:Helvetica;
+      color:#313131;
+    }
+    .outer{
+      position: relative;
+      width: 17.5rem;
+      margin:3rem auto;
+      height: 100%;
+      overflow-y: scroll;
+      background:#fff url(images/bg.png) no-repeat;
+      background-size:100% auto;
+    }
+    .imgHeader{
+      width: 100%;
+      height: 4rem;
+    }
+    .renwu{
+      position: absolute;
+      margin-top: 1.75rem;
+      width: 13.5rem;
+      left:50%;
+      margin-left:-6.75rem;
+      height: auto;
+    }
+    main{
+      width: 90%;
+      position: absolute;
+      margin: 0.8rem;
+    }
+    .imgPart{
+      width: 100%;
+      margin: 0.5rem auto;
+      height: 2.6rem;
+      border:1px solid #eee;
+    }
+    .imgPart span{
+      display: inline-block;
+      margin:0rem 0.1rem;
+      padding:0.1rem 0.2rem;
+      background-color: #E3E3E3;
+      font-size: 0.4rem;
+    }
+    .dragImgPart{
+      width: 3rem;
+      height: 7.8rem;
+      background-color:#182EEB;
+      opacity: 0.51;
+      position: absolute;
+      top:3.6rem;
+      left:4.8rem;
+      z-index: 1;
+    }
+    .dragImgPart img {
+       width: 2.8rem;
+    }
+    .tishi2{
+      position: absolute;
+      width:9.6rem;
+      top:4.5rem;
+      left:4rem;
+    }
+    .tishi2 .xiaoshouer{
+      width:1rem;
+      height: auto;
+    }
+    .tishi2 .tishidongzuo{
+      position: absolute;
+      right:0rem;
+      font-size: 0.35rem;
+      color: #F3A940;
+      display: inline-block;
+      margin-left: 1rem;
+    }
+    .part{
+       width: 100%;
+    }
+    .dragPart{
+      width: 100%;
+      height: auto;
+      margin: 2rem auto;
+      display: flex;
+      justify-content:center;
+    }
+    .dragPart .area{
+      width: 100%;
+      height: 9rem;
+      background-color: rgb(192, 192, 192);
+      font-size: 0.8rem;
+      padding:0.3rem;
+      padding-top: 0.8rem;
+    }
+    .dragPart .area span{
+      display: block;
+    }
+    .dragPart .drag{
+      width: 48%;
+      height: 9rem;
+      float: left;
+      background-color:rgb(192, 192, 192) ;
+      position: relative;
+      animation: shaky-slow 1s ease-in-out 0s infinite forwards;
+      animation-play-state:paused;
+    }
+    .dragPart .drag1.error,.dragPart .drag2.error{
+      animation-play-state:running;
+    }
+    
+    .dragPart .drag::before{
+      position: absolute;
+      top:0rem;
+      width:100%;
+      background-color: #3AB3C5;
+      font-size: 0.7rem;
+      text-align: center;
+    }
+    .dragPart .drag1::before{
+      content: "高压系统";
+    }
+    .dragPart .drag2::before{
+      content: "12v车载系统";
+    }
+    .dragPart .drag img{
+      position: absolute;
+      width: 2.8rem;
+      bottom: -1rem;
+      left:2.2rem;
+    }
+    .dragPart .drag:nth-child(1){
+      margin-right: 1rem;
+    }
+    @keyframes shaky-slow {
+        0% {
+            transform: translate(0px, 0px) rotate(0deg);
+        }
+        2% {
+            transform: translate(-1px, 1.5px) rotate(1.5deg);
+        }
+        4% {
+            transform: translate(1.3px, 0px) rotate(-0.5deg);
+        }
+        6% {
+            transform: translate(1.4px, 1.4px) rotate(-2deg);
+        }
+        8% {
+            transform: translate(-1.3px, -1px) rotate(-1.5deg);
+        }
+        10% {
+            transform: translate(1.4px, 0px) rotate(-2deg);
+        }
+        12% {
+            transform: translate(-1.3px, -1px) rotate(-2deg);
+        }
+        14% {
+            transform: translate(1.5px, 1.3px) rotate(1.5deg);
+        }
+        16% {
+            transform: translate(1.5px, -1.5px) rotate(-1.5deg);
+        }
+        18% {
+            transform: translate(1.3px, -1.3px) rotate(-2deg);
+        }
+        20% {
+            transform: translate(1px, 1px) rotate(-0.5deg);
+        }
+        22% {
+            transform: translate(1.3px, 1.5px) rotate(-2deg);
+        }
+        24% {
+            transform: translate(-1.4px, -1px) rotate(2deg);
+        }
+        26% {
+            transform: translate(1.3px, -1.3px) rotate(0.5deg);
+        }
+        28% {
+            transform: translate(1.6px, -1.6px) rotate(-1.5deg);
+        }
+        30% {
+            transform: translate(-1.3px, -1.3px) rotate(-1.5deg);
+        }
+        32% {
+            transform: translate(-1px, 0px) rotate(2deg);
+        }
+        34% {
+            transform: translate(1.3px, 1.3px) rotate(-0.5deg);
+        }
+        36% {
+            transform: translate(1.3px, 1.6px) rotate(1.5deg);
+        }
+        38% {
+            transform: translate(1.3px, -1.6px) rotate(1.5deg);
+        }
+        40% {
+            transform: translate(-1.4px, -1px) rotate(-0.5deg);
+        }
+        42% {
+            transform: translate(-1.4px, 1.3px) rotate(-0.5deg);
+        }
+        44% {
+            transform: translate(-1.6px, 1.4px) rotate(0.5deg);
+        }
+        46% {
+            transform: translate(-2.1px, -1.3px) rotate(-0.5deg);
+        }
+        48% {
+            transform: translate(1px, 1.6px) rotate(1.5deg);
+        }
+        50% {
+            transform: translate(1.6px, 1.6px) rotate(1.5deg);
+        }
+        52% {
+            transform: translate(-1.4px, 1.6px) rotate(0.5deg);
+        }
+        54% {
+            transform: translate(1.6px, -1px) rotate(-2deg);
+        }
+        56% {
+            transform: translate(1.3px, -1.6px) rotate(-2deg);
+        }
+        58% {
+            transform: translate(-1.3px, -1.6px) rotate(0.5deg);
+        }
+        60% {
+            transform: translate(1.3px, 1.6px) rotate(-0.5deg);
+        }
+        62% {
+            transform: translate(0px, 0px) rotate(-1.5deg);
+        }
+        64% {
+            transform: translate(-1.6px, -1.6px) rotate(-2deg);
+        }
+        66% {
+            transform: translate(1.6px, -1.6px) rotate(0.5deg);
+        }
+        68% {
+            transform: translate(0px, -1.6px) rotate(-2deg);
+        }
+        70% {
+            transform: translate(-1.6px, 1px) rotate(1.5deg);
+        }
+        72% {
+            transform: translate(-1.6px, 1.6px) rotate(2deg);
+        }
+        74% {
+            transform: translate(1.3px, -1.6px) rotate(-0.5deg);
+        }
+        76% {
+            transform: translate(1.4px, 1px) rotate(-0.5deg);
+        }
+        78% {
+            transform: translate(-1px, 1.4px) rotate(2deg);
+        }
+        80% {
+            transform: translate(1.4px, 1.6px) rotate(2deg);
+        }
+        82% {
+            transform: translate(-1.6px, -1.6px) rotate(-0.5deg);
+        }
+        84% {
+            transform: translate(-1.4px, 1.4px) rotate(-2deg);
+        }
+        86% {
+            transform: translate(1px, 1.4px) rotate(-2deg);
+        }
+        88% {
+            transform: translate(-1.4px, 1.4px) rotate(-1.5deg);
+        }
+        90% {
+            transform: translate(-1.6px, -1.6px) rotate(-2deg);
+        }
+        92% {
+            transform: translate(-1.4px, 1.6px) rotate(2deg);
+        }
+        94% {
+            transform: translate(-1.6px, -1.6px) rotate(-2deg);
+        }
+        96% {
+            transform: translate(-1.4px, 1.3px) rotate(-2deg);
+        }
+        98% {
+            transform: translate(1.3px, 1px) rotate(-0.5deg);
+        }
+        100% {
+            transform: translate(0px, 0px) rotate(0deg);
+        }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer">
+    <div class="imgHeader">
+      <image src="images/index10/renwu.png" class="renwu" />
+    </div>
+    <main>
+      <div class="part">
+        <h6>将各个组件归入正确的类别</h6>
+        <div class="imgPart">
+          <span class="gaoyadianchi">高压电池</span>
+          <span class="zuoyijiare">座椅加热</span>
+          <span class="dianji">电机</span>
+          <span class="qiandadeng">前大灯</span>
+          <span class="kongtiaoyasuoji">空调压缩机</span>
+          <span class="dianchitiaojie">电池调节控制单元</span>
+          <span class="daohangxitong">导航系统</span>
+          <span class="ranyoubeng">燃油泵</span>
+          <span class="neiqianyibiaopan">内嵌仪表盘</span>
+        </div>
+        <div class="dragPart">
+          <div class="drag drag1"><p class="area area1"></p><img src="images/index10/tu-1.png"/></div>
+          <div class="drag drag2"><p class="area area2"></p><img src="images/index10/tu-2.png"/></div>
+        </div>
+        <!-- <div class="dragImgPart"></div> -->
+        <p class="tishi2">
+          <img src="images/index10/xiaoshouer.png" class="xiaoshouer">
+          <span class="tishidongzuo">拖动选项使之与正确的答案匹配</span>
+        </p>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/touch-punch.js"></script>
+<script src="js/sortable.js"></script>
+<script>
+  window.onresize = getRem;
+  function getRem() {
+    document.documentElement.style.fontSize = document.documentElement.offsetWidth / 20 + 'px';
+  }
+  getRem();
+  new Sortable(document.querySelector(".imgPart"), {
+      group: 'shared',
+      animation: 150,
+      sort: false,
+      // onAdd: function (evt) {
+      //   console.log(evt)
+      // },
+      // onRemove:function(evt){
+      //   console.log(1234)
+      // },
+  });
+
+  new Sortable(document.querySelector(".area1"), {
+    group: 'shared',
+    animation: 150,
+    onSort: function (evt) {
+      var spans = Array.from($(".area1 span")).map(item=>{
+        return $(item).prop("className");
+      });
+      if(
+        spans.includes("ranyoubeng")
+        ||
+        spans.includes("neiqianyibiaopan")
+        ||
+        spans.includes("zuoyijiare")
+        ||
+        spans.includes("daohangxitong")
+        ||
+        spans.includes("qiandadeng")
+      ){
+        var temp = $(evt.item);
+        $(evt.item).remove();
+        $(".imgPart").append(temp);
+        $(".drag1").addClass("error");
+        setTimeout(() => {
+           $(".drag1").removeClass("error");
+        },1000);
+      }
+    
+    }
+  });
+  new Sortable(document.querySelector(".area2"), {
+    group: 'shared',
+    animation: 150,
+    onSort: function (evt) {
+      var spans = Array.from($(".area2 span")).map(item => {
+        return $(item).prop("className");
+      });
+      if (
+        spans.includes("kongtiaoyasuoji")
+        ||
+        spans.includes("gaoyadianchi")
+        ||
+        spans.includes("dianji")
+        ||
+        spans.includes("dianchitiaojie")
+      ) {
+        var temp = $(evt.item);
+        $(evt.item).remove();
+        $(".imgPart").append(temp);
+        $(".drag2").addClass("error");
+        setTimeout(() => {
+          $(".drag2").removeClass("error");
+        }, 1000);
+      }
+
+    }
+  });
+</script>

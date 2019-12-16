@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>练习-急速工作模式</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maixmum-scale=1.0,user-scalable=no">
+  <link rel="stylesheet" href="css/animate.min.css"></link>
+  <link rel="stylesheet" href="css/style.css"></link>
+  <style>
+    .title{
+      padding: 0.5rem 3rem 0.5rem 2.4rem;
+      font-size: 0.6rem;
+    }
+    main{
+      width: 100%;
+    }
+    .drawing{
+      margin: 0.6rem auto 0;
+      width: 12rem;
+      height: 12rem;
+      background: url("images/kuaibai.png") no-repeat;
+      background-size:100% auto;
+      padding: 1.2rem;
+    }
+    .ditu {
+      position: relative;
+    }
+    .ditu .jian{
+      position: absolute;
+      z-index: 9;
+      display: inline-block;
+    }
+    .ditu .jian1{
+      width: 1.2rem;
+      left: 2.6rem;
+      top: 1rem;
+    }
+    .ditu .jian2{
+      width: 1.2rem;
+      left: 4rem;
+      top: 1rem;
+    }
+    .ditu .jian3{
+      width: 1.6rem;
+      left: 6.8rem;
+      top: 1.2rem;
+    }
+    .ditu .jian4{
+      width: 0.9rem;
+      left: 0.6rem;
+      top: 2.9rem;
+    }
+    .ditu .jian5{
+      width: 1.2rem;
+      left: 3.4rem;
+      top: 2.8rem;
+    }
+    .ditu .jian6{
+      width: 1.4rem;
+      left: 4.9rem;
+      top: 4.9rem;
+    }
+    img.width100{
+      width: 100%;
+      height: 100%;
+    }
+    .infor{
+      padding-left: 2rem;
+      font-size: 0.4rem;
+      line-height: 1.5rem;
+    }
+    .notice {
+    	color: #F3A940;
+    	font-size: 0.6rem;
+    	display: inline-block;
+    }
+    .notice img{
+    	width: 0.8rem;
+    	display: inline-block;
+    	border: 1px dashed #cccccc;
+    	margin-left: 5rem;
+    }
+    .buttonDiv {
+    	text-align: center;
+    }
+    .buttonDiv img{
+    	display: inline-block;
+    	height: 1.2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer">
+    <div class="imgHeader">
+      <img src="images/tlt12.png" class="dianya" />
+    </div>
+    <main>
+      <div class="title">单击绿色箭头，显示“急加速”工作模式</div>
+      <div class="drawing">
+        <div class="ditu">
+          <img class="width100" src="images/ditu12.png">
+          <img src="images/jian1.png" class="jian jian1">
+          <img src="images/jian2.png" class="jian jian2">
+          <img src="images/jian3.png" class="jian jian3">
+          <img src="images/jian4.png" class="jian jian4">
+          <img src="images/jian5.png" class="jian jian5">
+          <img src="images/jian6.png" class="jian jian6">
+        </div>
+      </div>
+      <div class="buttonDiv">
+      	<img src="images/gxbutton.png" class="gxImg">
+      </div>
+    </main>
+  </div>
+</body>
+</html>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/touch-punch.js"></script>
+<script>
+  window.onresize = getRem;
+  function getRem() {
+    document.documentElement.style.fontSize = document.documentElement.offsetWidth / 20 + 'px';
+  }
+  getRem();
+  var a = true;
+  var b = false;
+  var c = true;
+  var d = false;
+  var e = true;
+  var f = false;
+  $(function(){
+    $(".jian1").click(function(){
+      if (a) {
+        $(this).css("transform", "rotate(180deg)");
+      } else {
+        $(this).css("transform", "rotate(360deg)");
+      }
+      $(".gxImg").attr("src", "images/gxbutton.png");
+      a = !a;
+    });
+    $(".jian2").click(function(){
+      if (!b) {
+        $(this).css("transform", "rotate(180deg)");
+      } else {
+        $(this).css("transform", "rotate(360deg)");
+      }
+      $(".gxImg").attr("src", "images/gxbutton.png");
+      b = !b;
+    });
+    $(".jian3").click(function(){
+      if (c) {
+        $(this).css("transform", "rotate(180deg)");
+      } else {
+        $(this).css("transform", "rotate(360deg)");
+      }
+      $(".gxImg").attr("src", "images/gxbutton.png");
+      c = !c;
+    });
+    $(".jian4").click(function(){
+      if (!d) {
+        $(this).css("transform", "rotate(180deg)");
+      } else {
+        $(this).css("transform", "rotate(360deg)");
+      }
+      $(".gxImg").attr("src", "images/gxbutton.png");
+      d = !d;
+    });
+    $(".jian5").click(function(){
+      if (e) {
+        $(this).css("transform", "rotate(180deg)");
+      } else {
+        $(this).css("transform", "rotate(360deg)");
+      }
+      $(".gxImg").attr("src", "images/gxbutton.png");
+      e = !e;
+    });
+    $(".jian6").click(function(){
+      if (!f) {
+        $(this).css("transform", "rotate(180deg)");
+      } else {
+        $(this).css("transform", "rotate(360deg)");
+      }
+      $(".gxImg").attr("src", "images/gxbutton.png");
+      f = !f;
+    });
+    $(".gxImg").click(function(){
+    	if (a&&b&&c&&d&&e&&f){
+        $(".gxImg").attr("src", "images/sure.png");
+      } else {
+        $(".gxImg").attr("src", "images/error.png");
+      }
+    });
+  });
+</script>
+

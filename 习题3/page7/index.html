@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>无设计稿rem</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maixmum-scale=1.0,user-scalable=no">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      background-color:#93D9F6;
+      width: 100%;
+      height: 100%;
+      font-family:Helvetica;
+      color:#313131;
+    }
+    .outer{
+      position: relative;
+      width: 17.5rem;
+      margin:3rem auto;
+      height: 100%;
+      overflow-y: scroll;
+      background:#fff url(images/bg.png) no-repeat;
+      background-size:100% auto;
+    }
+    .imgHeader{
+      width: 100%;
+      height: 4rem;
+    }
+    .jieda{
+      position: absolute;
+      margin-top: 1.75rem;
+      width: 13.5rem;
+      left:50%;
+      margin-left:-6.75rem;
+      height: auto;
+    }
+    main{
+      position: absolute;
+      margin: 0.6rem 1.1rem;
+    }
+    .part p{
+      margin-top: 0.9rem;
+      font-size: 0.45rem;
+      color:#333333;
+    }
+    .part p span{
+      color:#182EEB;
+      font-size: 0.8rem;
+    }
+    .part .range{
+      width: 12rem;
+      height: 0.425rem;
+      background-color: #3AB3C5;
+      position: relative;
+      margin: 1.02rem auto 0.8rem;
+    }
+    .part .range::before{
+      content: "0V";
+      position: absolute;
+      top:0.6rem;
+      left:0rem;
+    }
+    .part .range::after{
+      content: "1000V";
+      position: absolute;
+      top:0.6rem;
+      right:0rem;
+    }
+    .part .range .kuai{
+      position: absolute;
+      width: 0.925rem;
+      height: 0.84rem;
+      background-color: #F3A940;
+      top:-0.26rem;
+      left:0rem;
+    }
+    .part .tishi{
+      position: relative;
+      width:4.6rem;
+      margin: 0rem 5.4rem;
+    }
+    .tishi .xiaoshouer{
+      width:1rem;
+      height: auto;
+      transition: all 0.5s ease 0s;
+      animation: donghua 1s 3 0s forwards;
+    }
+    @keyframes donghua {    
+      from {
+        transform: translateX(0rem);
+      }
+      to {
+         transform: translateX(1rem);
+      }
+    }
+    .tishi .tishidongzuo{
+      position: absolute;
+      right:0rem;
+      font-size: 0.35rem;
+      color: #F3A940;
+      display: inline-block;
+      margin-left: 1rem;
+    }
+    .BtnPart{
+      margin-top: 0.6rem;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      height: 2.1rem;
+    }
+    .BtnPart a img{
+      position: absolute;
+      width:2.9rem;
+      height: auto;
+    }
+    .BtnPart a:nth-child(1) img{
+      left:2rem;
+    }
+    .BtnPart a:nth-child(2) img{
+      right:2rem;
+    }
+    .imgPart{
+      width: 13.8rem;
+      margin-left: 0.8rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      height: 1.82rem;
+      border:1px solid #eee;
+
+    }
+    .imgPart img{
+      display: inline-block;
+      margin:0rem 0.2rem;
+      padding:0;
+    }
+    .imgPart img,.dragPart img{
+      width: 2.8rem;
+    }
+    .dragPart{
+      width: 3rem;
+      height: auto;
+      margin-left: 4.8rem;
+    }
+    .dragImgPart{
+      width: 3rem;
+      height: 7.8rem;
+      background-color:#182EEB;
+      opacity: 0.51;
+      position: absolute;
+      top:3.6rem;
+      left:4.8rem;
+      z-index: 1;
+    }
+    .dragImgPart img {
+       width: 2.8rem;
+    }
+    .dragPart .area{
+      width: 2.86rem;
+      height: 1.76rem;
+      background-color: #E5E5E5;
+      margin-top: 0rem;
+      margin-bottom: 0.24rem;
+      overflow: hidden;
+    }
+    .part2{
+      position: relative;
+    }
+    .tishi2{
+      position: absolute;
+      width:3.6rem;
+      top:4rem;
+      right:1rem;
+    }
+    .tishi2 .xiaoshouer{
+      width:1rem;
+      height: auto;
+    }
+    .tishi2 .tishidongzuo{
+      position: absolute;
+      right:0rem;
+      font-size: 0.35rem;
+      color: #F3A940;
+      display: inline-block;
+      margin-left: 1rem;
+    }
+    .dragPart .drag{
+      position: relative;
+    }
+    .dragPart .drag::before{
+      position: absolute;
+      top: 0.6rem;
+      right:-2.5rem;
+      font-size: 0.6rem;
+    }
+    .drag1::before{
+      content: "230V AC";
+    }
+    .drag2::before{
+      content: "1,5V DC";
+    }
+    .drag3::before{
+      content: "420V DC";
+    }
+    .drag4::before{
+      content: "12V DC";
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer">
+    <div class="imgHeader">
+      <image src="images/index6/jieda.png" class="jieda" />
+    </div>
+    <main>
+      <div class="part part1">
+        <h6>一、将调节滑块置于在汽车中属于危险电压的直流电压限值</h6>
+        <p>现在看到的这个电压值是<span class="dianyajieguo"> 0 </span>V</p>
+        <p class="range">
+          <span class="kuai"><span>
+        </p>
+        <p class="tishi">
+          <img src="images/index6/xiaoshouer.png" class="xiaoshouer">
+          <span class="tishidongzuo">拖动滑块</span>
+        </p>
+        <div class="BtnPart">
+          <a href="javascript:void(0);" onclick="checkFn1()"><img src="images/index6/jiancha.png" class="jiancha"></a>
+          <a href="javascript:void(0);" onclick="solutionFn1()"><img src="images/index6/daan.png" class="daan"></a>
+        </div>
+      </div>
+      <div class="part part2">
+        <h6>二、将下列电源与正确的电压值相匹配</h6>
+        <div class="imgPart">
+          <img src="images/index6/dianchi.png" class="dianchi">
+          <img src="images/index6/dianping.png" class="dianping">
+          <img src="images/index6/dianyuan.png" class="dianyuan">
+          <img src="images/index6/xiaoche.png" class="xiaoche">
+        </div>
+        <div class="dragPart">
+          <div class="drag drag1"><p class="area area1"></p></div>
+          <div class="drag drag2"><p class="area area2"></p></div>
+          <div class="drag drag3"><p class="area area3"></p></div>
+          <div class="drag drag4"><p class="area area4"></p></div>
+        </div>
+        <!-- <div class="dragImgPart"></div> -->
+        <p class="tishi2">
+          <img src="images/index6/xiaoshouer.png" class="xiaoshouer">
+          <span class="tishidongzuo">拖动选项使之与正确的答案匹配</span>
+        </p>
+        <div class="BtnPart">
+          <a href="javascript:void(0);" onclick="checkFn()"><img src="images/index6/jiancha.png"></a>
+          <a href="javascript:void(0);" onclick="solutionFn()"><img src="images/index6/daan.png"></a>
+        </div>
+        
+      </div>
+    </main>
+  </div>
+</body>
+</html>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/touch-punch.js"></script>
+<script src="js/sortable.js"></script>
+<script>
+  window.onresize = getRem;
+  function getRem() {
+    document.documentElement.style.fontSize = document.documentElement.offsetWidth / 20 + 'px';
+  }
+  getRem();
+  //第一道题
+  $(".kuai").draggable({
+      containment: ".range",
+      scroll: false,
+      axis: "x",
+      drag: function (event, ui) {
+        var item = ($(".range").innerWidth() - $(".kuai").innerWidth()) / 50;
+        dengbgOp = 20 * parseInt((ui.position.left / item));
+        $(".dianyajieguo").html(dengbgOp);
+      }
+    });
+    function checkFn1() {
+      if($(".dianyajieguo").text() == 60){
+        $(".part1 .BtnPart a:nth-child(1) img").attr("src", "images/index6/success.png");
+      }else{
+        $(".part1 .BtnPart a:nth-child(1) img").attr("src", "images/index6/error.png");
+      }
+      setTimeout(() => {
+        $(".part1 .BtnPart a:nth-child(1) img").attr("src", "images/index6/jiancha.png");
+      }, 2000);
+    };
+    function solutionFn1() {
+      $(".dianyajieguo").text(60);
+      var item = ($(".range").innerWidth() - $(".kuai").innerWidth()) / 50;
+       $(".kuai").css({"left": item*3});
+    }
+  // 第二道题
+  new Sortable(document.querySelector(".imgPart"), {
+      group: 'shared',
+      animation: 150,
+      sort: false,
+      // onAdd: function (evt) {
+      //   console.log(evt)
+      // },
+      // onRemove:function(evt){
+      //   console.log(1234)
+      // },
+      // onSort: function (evt) {
+      //   console.log(evt)
+      // }
+  });
+
+  new Sortable(document.querySelector(".area1"), {
+    group: 'shared',
+    animation: 150,
+  });
+  new Sortable(document.querySelector(".area2"), {
+    group: 'shared',
+    animation: 150,
+  });
+  new Sortable(document.querySelector(".area3"), {
+      group: 'shared',
+      animation: 150,
+  });
+  new Sortable(document.querySelector(".area4"), {
+    group: 'shared',
+    animation: 150,
+  });
+  function checkFn() {
+    var imgs = $(".area").children("img");
+    if(
+      imgs.length == 4
+      &&
+      $(imgs[0]).prop("className") == "dianyuan"
+      &&
+      $(imgs[1]).prop("className") == "dianchi"
+      &&
+      $(imgs[2]).prop("className") == "xiaoche"
+      &&
+      $(imgs[3]).prop("className") == "dianping"
+    ){
+       $(".part2 .BtnPart a:nth-child(1) img").attr("src", "images/index6/success.png");
+    }else{
+      $(".part2 .BtnPart a:nth-child(1) img").attr("src", "images/index6/error.png");
+    }
+    setTimeout(() => {
+      $(".part2 .BtnPart a:nth-child(1) img").attr("src", "images/index6/jiancha.png");
+    }, 2000);
+  }
+  function solutionFn() {
+    $(".dianyuan").prependTo($(".area1"));
+    $(".dianchi").prependTo($(".area2"));
+    $(".xiaoche").prependTo($(".area3"));
+    $(".dianping").prependTo($(".area4"));
+  }
+</script>

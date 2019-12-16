@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html,
+  body {
+    background-color:#93D9F6;
+    width: 100%;
+    height: 100%;
+    font-family:Helvetica;
+    padding: 1.6rem 0;
+    overflow-y: auto;
+  }
+  .outer{
+    position: relative;
+    width: 17.5rem;
+    margin:0 auto;
+    min-height: 100%;
+    box-sizing: border-box;
+    background: url(../images/bg.png) #ffffff no-repeat;
+    background-size:100% auto;
+    border-color: #3AB3C5;
+    border-width: 0.2rem;
+    border-style: solid;
+  }
+  .imgHeader{
+    width: 100%;
+    height: 4rem;
+  }
+  .dianya{
+    position: absolute;
+    margin-top: 1.75rem;
+    width: 13.5rem;
+    left:50%;
+    margin-left:-6.75rem;
+    height: auto;
+  }
+  main{
+    position: absolute;
+    margin-top: 0.6rem;
+  }
+  .title{
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem 0.1rem 1.5rem;
+    font-family: SourceHanSansSC-Normal;
+  }
+  .content{
+    font-size: 0.6rem;
+    padding: 0.5rem 1.5rem;
+    /* text-indent: 2em; */
+    color: #333333;
+    font-family: SourceHanSansSC-Normal;
+  }
